@@ -1,0 +1,25 @@
+{
+  "checkpoint_version": "camera_v7",
+  "source_checkpoint_sha256": "722614b198153c75c2248d1e0e9f7af9a0420123d62d3438f0911d9aa95bbaef",
+  "model_sha256": "f1fc04ca98bace9f1a1a5537d83fc9c52574514c0641959084c94a9f0750cbf4",
+  "model_size_bytes": 12094116,
+  "format": "ONNX",
+  "precision": "FP32",
+  "opset": 17,
+  "dynamic": true,
+  "image_size": 512,
+  "confidence": 0.35,
+  "iou": 0.45,
+  "agnostic_nms": true,
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "trained_again": false,
+  "parity_verified": true,
+  "cloud_uploaded": false,
+  "cloud_deployed": false,
+  "parity_images": 129,
+  "model_file": "models/face_mask_v7.onnx"
+}

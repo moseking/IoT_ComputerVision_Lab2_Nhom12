@@ -1,0 +1,5 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+# The exported ONNX is intentionally versioned in this private deployment repository.
