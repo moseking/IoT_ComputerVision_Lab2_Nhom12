@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: face-mask-v7-cloud
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: CLOUD_API_KEY
+        sync: false
+      - key: CLOUD_MODEL_SHA256
+        value: f1fc04ca98bace9f1a1a5537d83fc9c52574514c0641959084c94a9f0750cbf4

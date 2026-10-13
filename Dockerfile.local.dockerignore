@@ -1,0 +1,15 @@
+.venv
+.env
+.git
+data
+dataset
+models
+results
+esp32_cam/config.h
+__pycache__
+
+.runtime
+.env.*
+reports
+*.pt
+*.onnx

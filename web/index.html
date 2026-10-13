@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Face Mask Detection · IoT Lab 3</title>
+<link rel="stylesheet" href="/static/style.css?v=20261012-group12-4"><script defer src="/static/app.js?v=20261012-group12-4"></script>
+</head>
+<body>
+<div class="shell">
+<aside>
+  <a class="brand" href="/"><span class="brand-mark">FM</span><span class="brand-identity"><span>MASK<span class="brand-light">/LAB</span></span><span class="brand-group">Nhóm 12</span></span></a>
+  <div class="side-label">PHÁT TRIỂN HỆ THỐNG IoT</div>
+  <nav><a class="active" href="#monitor">◉ Giám sát camera</a><a href="#recognition">▤ Kết quả đã lưu</a><a href="#history">↗ Lịch sử độ trễ</a><a href="/docs" target="_blank" rel="noopener">⌘ Tài liệu API</a></nav>
+  <div class="side-bottom"><span class="small-dot"></span> ESP32-CAM + YOLOv8n<p>Lab 3 · Nhận diện 3 lớp</p></div>
+</aside>
+<main>
+<header><div><div class="eyebrow">COMPUTER VISION / IoT</div><h1>Face Mask Detection</h1><p>Nhận diện khẩu trang từng khuôn mặt · Camera thực tế · Số đo thực tế</p></div><div class="header-right"><span id="clock"></span><span class="pill" id="apiBadge">Đang kết nối API</span></div></header>
+<section class="connection">
+  <div><span class="label">THIẾT BỊ ESP32-CAM</span><strong id="deviceStatus">Chưa thấy thiết bị</strong><small id="lastSeen">Chờ frame đầu tiên từ ESP32-CAM</small></div>
+  <div><span class="label">CAMERA IP / URL</span><strong id="cameraAddress">Chưa cấu hình</strong><a id="cameraLink" target="_blank" rel="noopener" hidden>Mở camera ↗</a></div>
+  <div><span class="label">INFERENCE MODEL</span><strong id="modelStatus">Đang kiểm tra…</strong><small id="modelDetails">YOLOv8n · 3 classes</small></div>
+  <div><span class="label">TELEGRAM</span><strong id="telegramStatus">Đang kiểm tra…</strong><small id="telegramDetails">Tùy chọn · không chặn inference</small></div>
+  <button class="secondary" id="settingsButton">Cấu hình kết nối</button>
+</section>
+<div id="notice" class="notice" role="status">Dashboard chờ kết quả từ thiết bị.</div>
+<section id="settingsPanel" class="settings" hidden>
+  <label>API URL<input id="apiInput" type="url" placeholder="http://127.0.0.1:8000"></label>
+  <label>Camera URL<input id="cameraInput" type="url" placeholder="http://192.168.1.50"></label>
+  <label>API key (nếu server yêu cầu)<input id="keyInput" type="password" autocomplete="off"></label>
+  <button id="saveSettings">Áp dụng</button><small>URL mặc định lấy từ .env. API key chỉ giữ trong bộ nhớ trang.</small>
+</section>
+<div class="monitor-grid" id="monitor">
+<section class="panel image-panel">
+  <div class="section-heading"><div><span class="eyebrow">CAMERA FEED</span><h2>Live / Result</h2></div><span class="pill muted" id="frameSource">Chưa có frame</span></div>
+  <label class="inference-control">Nhận diện tại
+    <select id="inferenceTarget"><option value="local">Máy tính</option><option id="cloudOption" value="cloud" disabled>Cloud Render</option></select>
+    <small id="cloudHint">Cloud chưa cấu hình</small>
+  </label>
+  <div class="image-stage"><div id="emptyFrame"><span class="camera-icon">◎</span><h3>Chưa có ảnh chụp</h3><p>Bấm Chụp + nhận diện để lấy một ảnh và giữ nguyên kết quả.<br>Bấm Live nhận diện để xem ảnh và box cập nhật liên tục.</p></div><img id="frame" alt="Ảnh thực tế từ ESP32-CAM và bounding box" hidden></div>
+  <div class="image-toolbar"><div><button id="resultButton" class="selected">Xem ảnh</button><button id="liveButton" class="secondary">Live nhận diện</button><button id="captureButton" class="secondary">Chụp + nhận diện</button><button id="saveRawButton" class="secondary" disabled>Lưu ảnh gốc</button><button id="flashButton" class="secondary" aria-pressed="false">Bật flash</button><small id="captureTelegramStatus" role="status"></small>
+              <small id="flashStatus" role="status">Bấm để bật đèn camera</small></div><span id="frameTime">—</span></div>
+</section>
+<section class="panel detection-panel">
+  <div class="section-heading"><div><span class="eyebrow">DETECTION RESULT</span><h2>Kết quả nhận diện</h2></div><strong class="people-count" id="peopleCount">—</strong></div>
+  <p class="subtext">Số khuôn mặt được model phát hiện</p>
+  <div class="legend"><span><i class="green"></i>Đeo đúng</span><span><i class="red"></i>Không đeo</span><span><i class="amber"></i>Đeo sai</span></div>
+  <div class="current-counts" id="currentCounts" aria-label="Số khuôn mặt theo nhãn của ảnh đang xem" hidden></div>
+  <div id="detections" class="detections"><p class="empty-list">Chưa có kết quả inference.</p></div>
+  <div class="test-area"><label for="testFile">Kiểm thử ảnh offline <span>JPEG / PNG</span></label><input type="file" id="testFile" accept="image/jpeg,image/png"><button id="testButton" class="secondary">Gửi ảnh kiểm thử</button><small>Chế độ phụ để kiểm tra API. Demo IoT sử dụng ESP32-CAM.</small></div>
+</section>
+</div>
+<section class="latency-grid">
+  <article class="latency-card"><span class="label" id="inferenceLocationLabel">MODEL INFERENCE · LOCAL</span><div><strong id="inferenceMs">—</strong><span>ms</span></div><p>Preprocess + model + NMS trên server</p></article>
+  <article class="latency-card"><span class="label">ROUND TRIP</span><div><strong id="roundtripMs">—</strong><span>ms</span></div><p id="roundtripDefinition">Gửi request → nhận hết response</p></article>
+  <article class="latency-card"><span class="label">END-TO-END</span><div><strong id="totalMs">—</strong><span>ms</span></div><p id="totalDefinition">Capture → nhận hết kết quả</p></article>
+  <article class="latency-card"><span class="label">CAPTURE</span><div><strong id="captureMs">—</strong><span>ms</span></div><p>Lấy và sao chép frame trên ESP32</p></article>
+</section>
+<section class="panel recognition-panel" id="recognition">
+  <div class="section-heading"><div><span class="eyebrow">DETECTION HISTORY</span><h2>Lịch sử nhận diện</h2><p class="section-description">Ba nhãn khẩu trang, lưu theo từng lượt nhận diện.</p></div><button id="recognitionExportButton" class="secondary">Xuất kết quả ↓</button></div>
+  <div class="recognition-totals">
+    <article class="recognition-stat correct"><span class="stat-label"><i class="green"></i>Đeo đúng</span><div><strong id="correctTotal">—</strong><span>khuôn mặt</span></div><small id="correctRequests">Chưa có số liệu</small></article>
+    <article class="recognition-stat absent"><span class="stat-label"><i class="red"></i>Không đeo</span><div><strong id="absentTotal">—</strong><span>khuôn mặt</span></div><small id="absentRequests">Chưa có số liệu</small></article>
+    <article class="recognition-stat incorrect"><span class="stat-label"><i class="amber"></i>Đeo sai</span><div><strong id="incorrectTotal">—</strong><span>khuôn mặt</span></div><small id="incorrectRequests">Chưa có số liệu</small></article>
+  </div>
+  <p class="recognition-note" id="recognitionSummaryNote">Chưa có lịch sử nhãn. Số liệu cộng theo lượt, không phải số người duy nhất.</p>
+  <div class="recognition-toolbar"><span class="history-all">Tất cả</span><small id="recognitionRowsNote">50 lượt gần nhất</small></div>
+  <div class="table-wrap recognition-table-wrap"><table class="recognition-table"><thead><tr><th>Thời gian</th><th>Nguồn / nơi chạy</th><th>Khuôn mặt</th><th>Kết quả theo nhãn</th></tr></thead><tbody id="recognitionBody"><tr><td colspan="4">Chưa có kết quả đã lưu.</td></tr></tbody></table></div>
+</section>
+<section class="panel history-panel" id="history">
+  <div class="section-heading"><div><span class="eyebrow">LATENCY HISTORY</span><h2>Độ trễ theo thời gian</h2></div><button id="exportButton" class="secondary">Xuất CSV ↓</button></div>
+  <div class="chart-legend"><span><i class="green"></i>Inference</span><span><i class="blue"></i>Round trip</span><span><i class="amber"></i>End-to-end</span></div>
+  <canvas id="latencyChart" aria-label="Biểu đồ độ trễ của các request đã đo" role="img"></canvas>
+  <div class="table-wrap"><table><thead><tr><th>Thời gian</th><th>Nguồn</th><th>Trạng thái</th><th>Khuôn mặt</th><th>Inference</th><th>Round trip</th><th>Toàn trình</th></tr></thead><tbody id="historyBody"><tr><td colspan="7">Chưa có request nào.</td></tr></tbody></table></div>
+</section>
+<section class="panel summary-panel"><div><span class="eyebrow">SESSION SUMMARY</span><h2>Thống kê lịch sử</h2><p id="requestCount">0 request</p></div><div id="summaryValues"></div></section>
+<footer><span>AI Thinker ESP32-CAM → FastAPI → YOLOv8n → Dashboard</span><span>“—” = chưa đo / không khả dụng · Refresh không tải lại trang</span></footer>
+</main>
+</div>
+</body>
+</html>

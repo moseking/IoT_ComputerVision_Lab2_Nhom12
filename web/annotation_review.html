@@ -1,0 +1,53 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Review nhãn khuôn mặt</title><style>
+body{margin:0;background:#101827;color:#dfebff;font:16px system-ui}header{padding:16px 24px;background:#1b2940}main{display:grid;grid-template-columns:minmax(400px,1fr) 360px;gap:20px;padding:20px}canvas{max-width:100%;background:#090f19;cursor:crosshair}aside{background:#1b2940;padding:18px;border-radius:12px}button,select,input,textarea{font:inherit;padding:8px;margin:5px 0;border-radius:6px}button{cursor:pointer;background:#72dbc7;border:0}textarea{width:94%;height:100px}p{line-height:1.5}#msg{color:#ffce78}.warn{color:#ffce78}@media(max-width:800px){main{display:block}}</style></head><body><header><strong>Review ảnh thật · bbox và class</strong><div id="progress"></div></header><main><section><canvas id="canvas"></canvas></section><aside>
+<div><button id="prev">← Trước</button> <button id="next">Sau →</button><input id="jump" type="number" min="0" style="width:60px"><button id="go">Đến</button></div>
+<button id="importNew" hidden>Tải ảnh mới trong thư mục</button><p id="importHint" hidden>Lưu ảnh tên mới rồi bấm tải. Box đeo sai cần chứa mặt và phần khẩu trang treo; chỉ xác minh sau khi kiểm tra.</p><p id="source"></p><p id="status"></p><select id="class"><option value="">Chọn class cho từng mặt</option><option value="0">0 · with_mask</option><option value="1">1 · without_mask</option><option value="2">2 · mask_weared_incorrect</option></select>
+<p>Bấm vào box trên ảnh hoặc chọn trong danh sách, rồi đổi class riêng của box đó. Nhiều box có thể cùng class. Box đang chọn có viền trắng. Kéo chuột để vẽ box mới; tọa độ theo JPEG đã xoay đúng.</p><select id="boxes" size="4" style="width:100%"></select><button id="remove">Xóa box chọn</button><button id="clear">Xóa tất cả</button><button id="widen">Nới box đeo sai</button>
+<input id="reviewer" placeholder="Tên người review"><textarea id="note" placeholder="Ghi chú / lý do loại"></textarea><div><button id="accept">Xác minh + Sau</button><button id="draft">Lưu nháp</button><button id="exclude">Loại + Sau</button></div><p class="warn">Box/class gợi ý còn là nháp. Chỉ xác minh khi bạn đã kiểm tra từng mặt, vị trí box và trạng thái khẩu trang.</p><p id="msg"></p></aside></main><script>
+const token="__REVIEW_TOKEN__";let manifest,rows,index=0,image=new Image(),boxes=[],start=null,selectedBox=-1;const canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d"),$=id=>document.getElementById(id);
+function syncClass(){const box=boxes[selectedBox];$("class").value=box?.class_id==null?"":String(box.class_id);}
+function selectBox(n){selectedBox=n>=0&&n<boxes.length?n:-1;syncClass();draw();}
+function draw(){
+  ctx.drawImage(image,0,0);
+  for(let i=0;i<boxes.length;i++){
+    let b=boxes[i].bbox;ctx.lineWidth=3;ctx.strokeStyle=(["#62ec8a","#f27373","#ffca61"][boxes[i].class_id]||"#ffca61");
+    ctx.strokeRect(b[0],b[1],b[2]-b[0],b[3]-b[1]);ctx.font="20px sans-serif";ctx.fillStyle=ctx.strokeStyle;
+    ctx.fillText(i+" : "+(manifest.mapping[boxes[i].class_id]||"chưa gán class"),b[0],Math.max(22,b[1]-5));
+    if(i===selectedBox){ctx.lineWidth=2;ctx.strokeStyle="#ffffff";ctx.strokeRect(b[0]-4,b[1]-4,b[2]-b[0]+8,b[3]-b[1]+8);}
+  }
+  $("boxes").replaceChildren(...boxes.map((b,i)=>Object.assign(document.createElement("option"),{value:i,textContent:i+" · "+(manifest.mapping[b.class_id]||"chưa gán class")+" "+b.bbox.map(Math.round).join(",")})));
+  $("boxes").selectedIndex=selectedBox;
+}
+function show(){
+  $("importNew").hidden=!manifest.incremental_import;$("importHint").hidden=!manifest.incremental_import;
+  for(const id of ["prev","next","go","accept","draft","exclude","remove","clear","widen"])$(id).disabled=!rows.length;
+  if(!rows.length){$("progress").textContent="0 ảnh mới · chưa có ảnh để duyệt";$("source").textContent=manifest.incremental_import?.source||"";$("status").textContent="Đang chờ ảnh mới. Ảnh đã review trước đây được bỏ qua.";canvas.width=640;canvas.height=300;ctx.clearRect(0,0,640,300);return;}
+  let r=rows[index];boxes=structuredClone(r.boxes||[]);selectedBox=boxes.length?0:-1;syncClass();$("source").textContent=r.index+" · "+r.source_relative;$("status").textContent=r.label_status+" · "+(r.review_reason||[]).join(", ");$("note").value=r.review_note||"";$("jump").value=index;$("progress").textContent=(index+1)+"/"+rows.length+" · verified "+rows.filter(r=>r.label_status==="verified").length;image.onload=()=>{canvas.width=image.width;canvas.height=image.height;draw();};image.src="/image/"+r.id;}
+function position(e){let r=canvas.getBoundingClientRect();return[(e.clientX-r.left)*canvas.width/r.width,(e.clientY-r.top)*canvas.height/r.height];}
+canvas.onpointerdown=e=>{start=position(e);canvas.setPointerCapture(e.pointerId);};
+canvas.onpointerup=e=>{
+  if(!start)return;let end=position(e),box=[Math.max(0,Math.min(start[0],end[0])),Math.max(0,Math.min(start[1],end[1])),Math.min(canvas.width,Math.max(start[0],end[0])),Math.min(canvas.height,Math.max(start[1],end[1]))];
+  if(box[2]-box[0]>2&&box[3]-box[1]>2){boxes.push({class_id:($("class").value===""?null:Number($("class").value)),bbox:box});selectedBox=boxes.length-1;}
+  else{let hits=boxes.map((b,i)=>({i,b:b.bbox})).filter(({b})=>end[0]>=b[0]&&end[0]<=b[2]&&end[1]>=b[1]&&end[1]<=b[3]);hits.sort((a,b)=>(a.b[2]-a.b[0])*(a.b[3]-a.b[1])-(b.b[2]-b.b[0])*(b.b[3]-b.b[1]));selectedBox=hits.length?hits[0].i:-1;}
+  start=null;syncClass();draw();
+};
+canvas.onpointercancel=()=>{start=null;};
+$("boxes").onchange=()=>selectBox($("boxes").selectedIndex);
+function widenIncorrectBox(box){
+  if(box.class_id!==2||box.context_padding_applied)return;
+  const [x1,y1,x2,y2]=box.bbox,w=x2-x1,h=y2-y1;
+  box.bbox=[Math.max(0,x1-.35*w),Math.max(0,y1-.10*h),Math.min(canvas.width,x2+.35*w),Math.min(canvas.height,y2+.35*h)];box.context_padding_applied=true;
+}
+$("class").onchange=()=>{if(selectedBox>=0){const box=boxes[selectedBox],before=box.class_id;box.class_id=($("class").value===""?null:Number($("class").value));if(before!==2&&box.class_id===2)widenIncorrectBox(box);draw();}};
+$("widen").onclick=()=>{if(selectedBox>=0){widenIncorrectBox(boxes[selectedBox]);draw();}};
+$("remove").onclick=()=>{if(selectedBox>=0)boxes.splice(selectedBox,1);selectBox(boxes.length?Math.min(selectedBox,boxes.length-1):-1);};$("clear").onclick=()=>{boxes=[];selectBox(-1);};
+$("prev").onclick=()=>{index=Math.max(0,index-1);show();};$("next").onclick=()=>{index=Math.min(rows.length-1,index+1);show();};$("go").onclick=()=>{index=Math.max(0,Math.min(rows.length-1,Number($("jump").value)));show();};
+async function save(action){let r=rows[index],res=await fetch("/api/review/"+r.id,{method:"POST",headers:{"Content-Type":"application/json","X-Review-Token":token},body:JSON.stringify({action,boxes,reviewer:$("reviewer").value,note:$("note").value})}),data=await res.json();$("msg").textContent=res.ok?"Đã lưu":JSON.stringify(data);if(res.ok){r.boxes=structuredClone(boxes);r.label_status=data.label_status;if(action!=="draft"){index=Math.min(rows.length-1,index+1);show();}}}
+$("importNew").onclick=async()=>{
+  $("importNew").disabled=true;$("msg").textContent="Đang kiểm tra ảnh mới…";
+  try{const res=await fetch("/api/import-new",{method:"POST",headers:{"X-Review-Token":token}});const data=await res.json();if(!res.ok)throw new Error(JSON.stringify(data));
+    manifest=await(await fetch("/api/manifest")).json();rows=manifest.images.filter(r=>r.processed_file);index=Math.max(0,rows.findIndex(r=>r.label_status==="draft"));show();$("msg").textContent="Đã thêm "+data.imported+" ảnh mới; bỏ qua "+data.duplicate_files_skipped+" file trùng. Nhãn mới đều là nháp.";
+  }catch(error){$("msg").textContent="Chưa tải được: "+error.message;}finally{$("importNew").disabled=false;}
+};
+$("accept").onclick=()=>save("accept");$("draft").onclick=()=>save("draft");$("exclude").onclick=()=>save("exclude");fetch("/api/manifest").then(r=>r.json()).then(data=>{manifest=data;rows=data.images.filter(r=>r.processed_file);show();});
+</script></body></html>

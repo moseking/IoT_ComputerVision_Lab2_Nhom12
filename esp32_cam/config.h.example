@@ -1,0 +1,18 @@
+#pragma once
+// Copy to config.h; this file is ignored by Git.
+#define WIFI_SSID "YOUR_WIFI_2_4_GHZ"
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+// Use the COMPUTER's LAN IPv4, not 127.0.0.1 or the camera IP.
+#define SERVER_URL "http://192.168.1.100:8000/predict"
+#define METRICS_URL "http://192.168.1.100:8000/metrics/report"
+#define API_KEY ""
+#define INFERENCE_ENABLED false // Dashboard requests capture/live; no periodic upload
+#define SEND_INTERVAL_MS 2000UL
+#define WIFI_RETRY_MS 10000UL
+#define HTTP_TIMEOUT_MS 15000
+#define HTTP_CONNECT_TIMEOUT_MS 5000
+#define JPEG_QUALITY 12
+#define CAMERA_FRAME_SIZE FRAMESIZE_VGA
+#define STREAM_INTERVAL_MS 100UL
+// For HTTPS: set the root CA of your cloud server; certificate verification is required.
+static const char TLS_ROOT_CA[] = "";

@@ -1,0 +1,15 @@
+# Tested Windows Python 3.12 / NVIDIA CUDA 12.8 environment
+--extra-index-url https://download.pytorch.org/whl/cu128
+fastapi==0.143.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+opencv-python==4.14.0.94
+numpy==2.5.3
+pillow==12.3.0
+ultralytics==8.4.174
+python-dotenv==1.2.4
+PyYAML==6.0.3
+httpx==0.28.1
+pillow-heif==1.8.0
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
