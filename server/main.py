@@ -327,8 +327,9 @@ def predict_camera(command: CameraPredictRequest):
 def predict(file: Annotated[UploadFile, File()], source: Annotated[Source, Form()] = "test_client",
             capture_ms: Annotated[float | None, Form(ge=0, le=300000)] = None,
             include_image: Annotated[bool, Form()] = False,
+            send_telegram: Annotated[bool, Form()] = False,
             inference_target: Annotated[Literal["local", "cloud"], Form()] = "local"):
-    return run_prediction(file, source, capture_ms, include_image, "json", inference_target=inference_target)
+    return run_prediction(file, source, capture_ms, include_image, "json", manual_telegram=send_telegram, inference_target=inference_target)
 
 
 @app.post("/predict/image", dependencies=[Depends(authorize)])

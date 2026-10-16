@@ -103,7 +103,7 @@ class LatencyStore:
                 # Retry is idempotent; it never replaces measurements already persisted.
                 return self.public(row)
             # The local gateway measures the WAN request. Browser reports only end-to-end.
-            roundtrip = row["cloud_roundtrip_ms"] if row["inference_location"] == "cloud" else values["roundtrip_ms"]
+            roundtrip = row["cloud_roundtrip_ms"] if row["inference_location"] == "cloud" and row["cloud_roundtrip_ms"] is not None else values["roundtrip_ms"]
             residual = roundtrip - row["server_processing_ms"]
             db.execute("""UPDATE latency_history SET roundtrip_ms=?,total_ms=?,capture_ms=?,
                        upload_ms=?,download_ms=?,network_overhead_estimated_ms=?,reported=1 WHERE request_id=?""",
