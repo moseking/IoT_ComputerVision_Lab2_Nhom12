@@ -1,0 +1,578 @@
+{
+  "created": "2026-10-11T14:35:45.116900+00:00",
+  "source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person",
+  "output": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+  "single_person": true,
+  "source_kind": "capture",
+  "mapping": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "folder_aliases": {
+    "with_mask": 0,
+    "without_mask": 1,
+    "wore_incorrect": 2,
+    "mask_weared_incorrect": 2
+  },
+  "max_side": 1600,
+  "proposal_detector": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\.runtime\\face_detector\\face_detection_yunet_2023mar.onnx",
+  "detector_sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+  "detector_source": "https://github.com/opencv/opencv_zoo/tree/main/models/face_detection_yunet",
+  "images": [
+    {
+      "index": 0,
+      "id": "d58aa4107833bf43",
+      "source_relative": "wore_incorrect/cam32_1.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_1.jpg",
+      "source_sha256": "e1d0eec872a657f4df9ab1f10e03a016f7869970896ea849ec0ab19493dbf3d0",
+      "intended_class_id": 2,
+      "label_status": "excluded",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "54c84396a5acc23063f460c8f0fd460a32c751be61e2a060293264837f4c1bd3",
+      "dhash": 15923862851415040947,
+      "blur_laplacian": 26.632675503158566,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0000_d58aa4107833bf43.jpg",
+      "processed_sha256": "47a2ad975a9ebac26bea16d56ad485648c199adc1d998a267deccd2e5b48ec1c",
+      "width": 640,
+      "height": 480,
+      "boxes": [],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face",
+        "low_sharpness"
+      ],
+      "human_reviewed": false,
+      "reviewer": "",
+      "reviewed_at": "2026-10-11T14:48:42.421350+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 1,
+      "id": "10e56d9f5bba4757",
+      "source_relative": "wore_incorrect/cam32_2.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_2.jpg",
+      "source_sha256": "41c23eac2c34bb9978c08d0605ba6a10b016721bfbf1e9d8ca1f354c52de495e",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "36db4034e19a5ea7b6c8e6823031325248e4d7b786cdfe48cbd67ccd9d1bf424",
+      "dhash": 17649872957534412438,
+      "blur_laplacian": 159.7384103321923,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0001_10e56d9f5bba4757.jpg",
+      "processed_sha256": "1ce269508246e40dd8b7e5646cd3073da51a5b77d49b0f5919afc1b69839b600",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            183.71483813480626,
+            164.5028140010976,
+            462.2889371988456,
+            401.0506291172605
+          ]
+        }
+      ],
+      "face_count": 1,
+      "conversion_status": "success",
+      "review_reason": [],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:08.375552+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 2,
+      "id": "4d080696fa2246e0",
+      "source_relative": "wore_incorrect/cam32_3.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_3.jpg",
+      "source_sha256": "ca0550c099106f702d4faa375d296beb87158239f2b45072043dc6638727dd4d",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "3f9be15f14d8d7c9b20ac133bcda8f477e6e5ecd2ea73a69cc107161079fade2",
+      "dhash": 17363761645158677630,
+      "blur_laplacian": 81.45124021986857,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0002_4d080696fa2246e0.jpg",
+      "processed_sha256": "6aa79859d5e1893959227b43209add20529bb29a8926f4231f16dbd2c262bf29",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            134.662109375,
+            149.34326171875,
+            340.17405700683594,
+            377.69232177734375
+          ]
+        }
+      ],
+      "face_count": 1,
+      "conversion_status": "success",
+      "review_reason": [],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:16.892931+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 3,
+      "id": "75a51358c1389a19",
+      "source_relative": "wore_incorrect/cam32_4.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_4.jpg",
+      "source_sha256": "138f05c0e26a28103e9b35eb2c83dad689340345d076d484fe9f7e1fa8cdae0e",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "e30072d214723d39bddd4196b1f60fbb5291330d1d4855316bc11692fb058979",
+      "dhash": 8104487807033964286,
+      "blur_laplacian": 99.35977864159479,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0003_75a51358c1389a19.jpg",
+      "processed_sha256": "18e3bf6f9cd330889d25df66efeb4ba8ae87321f1743e90ff7cbbca7503b32a4",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            142.88931473221075,
+            166.90431251143335,
+            402.2514128873072,
+            407.0543696674758
+          ]
+        }
+      ],
+      "face_count": 1,
+      "conversion_status": "success",
+      "review_reason": [],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:31.084430+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 4,
+      "id": "312023e7a0793838",
+      "source_relative": "wore_incorrect/cam32_5.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_5.jpg",
+      "source_sha256": "04dc4413dadbf76f8f7ed7592f6c6cdcbe24363da078abeecdde77bb9290b676",
+      "intended_class_id": 2,
+      "label_status": "excluded",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "68c4153f3d179b11cff1df40421a944c75160070414cad6920ba2b42cc3a93e5",
+      "dhash": 17653258387598143728,
+      "blur_laplacian": 16.190986261992986,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0004_312023e7a0793838.jpg",
+      "processed_sha256": "ff1de54bd6dbdb836680166f67eb2ec1a13a89e917bb94c395812f126ef74420",
+      "width": 640,
+      "height": 480,
+      "boxes": [],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face",
+        "low_sharpness"
+      ],
+      "human_reviewed": false,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:34.083615+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 5,
+      "id": "abf6050093cc8323",
+      "source_relative": "wore_incorrect/cam32_6.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_6.jpg",
+      "source_sha256": "e951bd430fa6f043744f4effb0203469b537cd2b44f05dce5cfafbc6a69d6e89",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "e4a041a93cdfd2f2526f0d92b637a57b26b4c929435990427ce2df7542e5833d",
+      "dhash": 13086574095715860222,
+      "blur_laplacian": 55.14622712189356,
+      "processed_file": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b/images/capture_0005_abf6050093cc8323.jpg",
+      "processed_sha256": "66a493be447094bfbc791466ecd0cf69120f3395e336d9181cf2479c18e2d47e",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            415.77197265625,
+            209.43984985351562,
+            619.6056060791016,
+            440.56101989746094
+          ]
+        }
+      ],
+      "face_count": 1,
+      "conversion_status": "success",
+      "review_reason": [],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:37.527058+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 6,
+      "id": "3fcbdfeb5e92210f",
+      "source_relative": "wore_incorrect/cam32_10.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_10.jpg",
+      "source_sha256": "e773f0b44caa9f1c48e43b3bdd820c4e98ecad38f1ec5bbd539acec1f0fa5aa5",
+      "intended_class_id": 2,
+      "label_status": "excluded",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "874dc00001b0b2319e1b441602aa2233de91299bec34db9f44d369d42e4d152b",
+      "dhash": 18374401693224730366,
+      "blur_laplacian": 22.3754059281985,
+      "processed_file": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d/images/capture_0000_3fcbdfeb5e92210f.jpg",
+      "processed_sha256": "bc6f4b1722ed4554702d06becd03f6ce83111ba9f0a405fae289374dd1caf32b",
+      "width": 640,
+      "height": 480,
+      "boxes": [],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face",
+        "low_sharpness"
+      ],
+      "human_reviewed": false,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:39.775725+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 7,
+      "id": "0b9241e179137538",
+      "source_relative": "wore_incorrect/cam32_11.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_11.jpg",
+      "source_sha256": "83ce5cacb4979cddf3e62e77c44f7c833b925563ce678c1d05285dd42279276c",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "8613f27078f7be86c6c8d242568e5069c680e68fc82944d29059e656e3120262",
+      "dhash": 4291802506002465163,
+      "blur_laplacian": 236.50705281871157,
+      "processed_file": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d/images/capture_0001_0b9241e179137538.jpg",
+      "processed_sha256": "7373040f21f474274e1faa07d7ee982162dda1f6afcf553dcadc9207b8a29203",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            345.8161537759599,
+            102.06377257363081,
+            575.1595012265361,
+            363.82737357893586
+          ]
+        }
+      ],
+      "face_count": 1,
+      "conversion_status": "success",
+      "review_reason": [],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:49:52.279143+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 8,
+      "id": "d06713306806263c",
+      "source_relative": "wore_incorrect/cam32_7.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_7.jpg",
+      "source_sha256": "2294ac69123017fcdb33ec2747255d65e3c7bc3a379ee227edaa86b348567740",
+      "intended_class_id": 2,
+      "label_status": "verified",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "72ccc11d0d5ce56a306b1461b253b445d36bcc6bc0a85bde507adbc0ffc326df",
+      "dhash": 18366700377287873264,
+      "blur_laplacian": 153.72420147526,
+      "processed_file": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d/images/capture_0002_d06713306806263c.jpg",
+      "processed_sha256": "c03de618886741c4bbd2e4f63925ede5d0c50f390d96eebdb7f6b9b2963a1d8f",
+      "width": 640,
+      "height": 480,
+      "boxes": [
+        {
+          "class_id": 2,
+          "bbox": [
+            360.2251458692303,
+            44.42776252058004,
+            617.185768244613,
+            288.18010752149473
+          ]
+        }
+      ],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face"
+      ],
+      "human_reviewed": true,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:50:04.297035+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 9,
+      "id": "c3cf1dfe04e94fa6",
+      "source_relative": "wore_incorrect/cam32_8.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_8.jpg",
+      "source_sha256": "fe44241084f89c3bbd157e92e07f5c7dea7dd2c9431f11245d8b9c034c3f6ceb",
+      "intended_class_id": 2,
+      "label_status": "excluded",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "e923254e4a90762258c5a6438f81cda26dc9e04271451e52f65cc5e4ae5f6d64",
+      "dhash": 18446744060824649727,
+      "blur_laplacian": 17.17238257408142,
+      "processed_file": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d/images/capture_0003_c3cf1dfe04e94fa6.jpg",
+      "processed_sha256": "d443cb51d08e89ee674cee7e1546c707261d213902efd7b908f97e219ad45515",
+      "width": 640,
+      "height": 480,
+      "boxes": [],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face",
+        "low_sharpness"
+      ],
+      "human_reviewed": false,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:50:06.670159+00:00",
+      "review_note": ""
+    },
+    {
+      "index": 10,
+      "id": "e5d18b384483258b",
+      "source_relative": "wore_incorrect/cam32_9.jpg",
+      "source_file": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person\\wore_incorrect\\cam32_9.jpg",
+      "source_sha256": "c990c633f2e6fb1f40b97cdce07a9b8d3909423cf82b42ecc8976767f4d34292",
+      "intended_class_id": 2,
+      "label_status": "excluded",
+      "source_kind": "capture",
+      "included_in_training": false,
+      "group_id": "batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "original_size": [
+        640,
+        480
+      ],
+      "exif_orientation": 1,
+      "oriented_size": [
+        640,
+        480
+      ],
+      "processed_size": [
+        640,
+        480
+      ],
+      "pixel_hash": "e659a5b6a562719dd6c973d9c77a065a95ebb0a8027579708aaa4a2a06b80435",
+      "dhash": 18229719139968679676,
+      "blur_laplacian": 25.832014368682437,
+      "processed_file": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d/images/capture_0004_e5d18b384483258b.jpg",
+      "processed_sha256": "8d8590cddb6a8a751314cda08644c4d48507cfe1419d6b7108925f86b1ab4ba1",
+      "width": 640,
+      "height": 480,
+      "boxes": [],
+      "face_count": 0,
+      "conversion_status": "success",
+      "review_reason": [
+        "no_face",
+        "low_sharpness"
+      ],
+      "human_reviewed": false,
+      "reviewer": "Mose",
+      "reviewed_at": "2026-10-11T14:50:14.583650+00:00",
+      "review_note": ""
+    }
+  ],
+  "exact_source_groups": [],
+  "exact_processed_pixel_groups": [],
+  "near_duplicate_pairs": [],
+  "statistics": {
+    "source_images": 11,
+    "by_folder_format": [],
+    "conversion_success": 11,
+    "conversion_failed": 0,
+    "face_counts": {},
+    "verified_images": 6
+  },
+  "contact_sheets": [],
+  "incremental_import": {
+    "source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\raw\\custom_capture\\single_person",
+    "known_reviews": [
+      "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\esp32_review_v1"
+    ],
+    "detector": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\.runtime\\face_detector\\face_detection_yunet_2023mar.onnx",
+    "policy": "Only unseen files become drafts. Device identity is not independently verified. No automatic training.",
+    "last_scan": "2026-10-11T14:45:11.447460+00:00"
+  },
+  "import_batches": [
+    {
+      "created": "2026-10-11T14:35:46.242784+00:00",
+      "folder": "imports/batch_6401a86c6fe74ef6bc8ca5a325d2a09b",
+      "source_images": 6,
+      "manifest_sha256": "6aa309b4b831b12aae793736954b418bcc616b2fad41d0c07be6f9a1a3e76705"
+    },
+    {
+      "created": "2026-10-11T14:45:11.405291+00:00",
+      "folder": "imports/batch_07bcbbb8fdd6457ea0a6b43f6146210d",
+      "source_images": 5,
+      "manifest_sha256": "cbda999ad6e320d1741b8aa97ef394fb7d98cb61c94db8f0cbd3f6683f56a456"
+    }
+  ]
+}

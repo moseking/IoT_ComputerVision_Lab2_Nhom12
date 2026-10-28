@@ -1,0 +1,20 @@
+{
+  "selection": {
+    "timestamp": "2026-10-11T11:57:49.002564+00:00",
+    "criterion": "higher standardized validation mAP50-95 at image512, conf.001, NMS IoU.45; preserve v3 on tie",
+    "test_used_for_selection": false,
+    "validation_scores": {
+      "baseline_v3": 0.5671970480844355,
+      "baseline_v6": 0.548737281275139
+    },
+    "selected": "baseline_v3",
+    "new_candidate_best_sha256": "b95b35539dd06039da11846facbb903a92fff1a23bb45b7614dc47b7a55f8f9b",
+    "checkpoint_locked_before_test": true,
+    "new_candidate_run": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\results\\training\\baseline_v6_2026-10-11T114225.941386_0000",
+    "new_candidate_epochs_completed": 8
+  },
+  "published_sha256": "d66dec3404992fe0c227b099ea47069c117e41739ac7e296219a857eeaf95764",
+  "published_version": "baseline_v3_2026-10-11T064852.371357_0000",
+  "new_model_published": false,
+  "previous_published_files_archived": false
+}

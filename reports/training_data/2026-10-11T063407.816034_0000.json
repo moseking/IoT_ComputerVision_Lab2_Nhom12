@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-11T06:34:07.812873+00:00",
+  "data_yaml": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\facemask_baseline_v2\\data.yaml",
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "splits": {
+    "train": {
+      "images": 751,
+      "bounding_boxes": 2774,
+      "class_distribution": {
+        "with_mask": 2126,
+        "without_mask": 535,
+        "mask_weared_incorrect": 113
+      },
+      "zero_object_images": 0,
+      "multi_object_images": 358
+    },
+    "val": {
+      "images": 124,
+      "bounding_boxes": 560,
+      "class_distribution": {
+        "with_mask": 442,
+        "without_mask": 101,
+        "mask_weared_incorrect": 17
+      },
+      "zero_object_images": 0,
+      "multi_object_images": 76
+    },
+    "test": {
+      "images": 124,
+      "bounding_boxes": 563,
+      "class_distribution": {
+        "with_mask": 443,
+        "without_mask": 102,
+        "mask_weared_incorrect": 18
+      },
+      "zero_object_images": 0,
+      "multi_object_images": 73
+    }
+  },
+  "total_images": 999,
+  "total_boxes": 3897,
+  "error_count": 0,
+  "warning_count": 0,
+  "issues": [],
+  "near_duplicate_distance": 4,
+  "test_policy": "test excluded from checkpoint selection/tuning; train uses val only",
+  "identity_disjoint": "unverified: dataset has no person identity IDs"
+}

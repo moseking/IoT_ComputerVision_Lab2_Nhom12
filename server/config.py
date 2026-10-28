@@ -44,6 +44,8 @@ class Settings:
     cloud_key: str = field(default=os.getenv("CLOUD_API_KEY", ""), repr=False)
     cloud_sha256: str = os.getenv("CLOUD_MODEL_SHA256", "")
     cloud_timeout: float = float(os.getenv("CLOUD_TIMEOUT_SECONDS", "90"))
+    default_inference_target: str = os.getenv("DEFAULT_INFERENCE_TARGET", "local")
+    default_camera_source: str = os.getenv("DEFAULT_CAMERA_SOURCE", "esp32")
     api_key: str = field(default=os.getenv("API_KEY", ""), repr=False)
     cors_origins: tuple = tuple(x.strip() for x in os.getenv("CORS_ORIGINS", "").split(",") if x.strip())
 
@@ -58,3 +60,8 @@ if settings.telegram_mode not in {"all", "violations"}:
     raise ValueError("TELEGRAM_ALERT_MODE must be all or violations")
 if min(settings.telegram_cooldown, settings.telegram_metrics_wait) < 0 or min(settings.telegram_timeout, settings.upload_timeout_seconds) <= 0:
     raise ValueError("Invalid Telegram/upload timeout or cooldown")
+
+if settings.default_inference_target not in {"local", "cloud"}:
+    raise ValueError("DEFAULT_INFERENCE_TARGET must be local or cloud")
+if settings.default_camera_source not in {"esp32", "webcam"}:
+    raise ValueError("DEFAULT_CAMERA_SOURCE must be esp32 or webcam")

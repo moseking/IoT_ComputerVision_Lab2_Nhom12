@@ -1,0 +1,2542 @@
+{
+  "created": "2026-10-11T15:00:11.706722+00:00",
+  "seed": 42,
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "public_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\facemask_public_yolo",
+  "custom_review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+  "custom_review_sources": [
+    {
+      "path": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_kind": "phone",
+      "manifest_sha256": "aa5efe3bcb2e2a2ac53f5eb7e23705b22b1e01424c11443e60bd34576d89c6ed",
+      "status_counts": {
+        "verified": 276,
+        "excluded": 4
+      }
+    },
+    {
+      "path": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_kind": "multi",
+      "manifest_sha256": "ccb23469eedd7623f5d9b71ee303c80061beda0628c0963eae5533768268dfcb",
+      "status_counts": {
+        "verified": 846,
+        "draft": 2,
+        "excluded": 158
+      }
+    },
+    {
+      "path": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\esp32_review_v1",
+      "source_kind": "esp32",
+      "manifest_sha256": "dfc68be4bd0ef91d2c7a0cbfb8ee56bef5a98610994f9aa1f70ac05bc8438831",
+      "status_counts": {
+        "verified": 26
+      }
+    },
+    {
+      "path": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_kind": "capture",
+      "manifest_sha256": "d080d2876aa444d67346d21e287a61b24b2af8857bf8532d63d1ed56e7a00730",
+      "status_counts": {
+        "excluded": 5,
+        "verified": 6
+      }
+    }
+  ],
+  "camera_training_opt_in": true,
+  "camera_evaluation_policy": "Camera sources included with opt-in are training/development data, never independent evaluation",
+  "custom_policy": "all reviewed custom capture sources assigned to train only; source groups do not prove separate identities",
+  "split_policy": "public train/val/test frozen; custom holdout matches excluded; no independent custom test claimed",
+  "identity_disjoint": "unverified for public/custom; phone and multi may contain the same people; all custom remains train only",
+  "box_exclusions_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\reports\\baseline_v5\\non_person_box_exclusions.json",
+  "box_exclusions_sha256": "f0285939b79d9426e8be1f25c03c84d8bd55a9302f239ff6fa5e9abae6516314",
+  "image_exclusions_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\reports\\camera_v8\\image_qc_exclusions.json",
+  "image_exclusions_sha256": "2bad291efe1cec8ebbc5522cc975c27031be094ac7c04063a0860a8a122d748c",
+  "bbox_context_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\reports\\camera_v8\\bbox_context.json",
+  "bbox_context_sha256": "a3121ad42264d58c7b4fbb0553cda24a7da7be03cbda9e9cd830f5daf7b8db97",
+  "excluded_custom": [
+    {
+      "id": "f61b77fbfcb8b4b2",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142558.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "4de48de0499e3c62",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142558_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "48d330cc192a65bd",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142559.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "8b4ae3b0d0034315",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142559_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "45e66b75a934171b",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142559_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "e4bd367fca8df104",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142600.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "740d372ab2ed37be",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142600_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "68f43f30ee379076",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142601.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "d589efc742dc1749",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142604_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "3d82f197ab1827cd",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142604_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "b7085149be5264d5",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142612.heic",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "fdfc15f4163888ef",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142613_01.heic",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "5ed98f5f6178569c",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261010142614.heic",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "947610a93470fafe",
+      "source_kind": "phone",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+      "source_relative": "with_mask/IMG20261011113033.heic",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "2498c790d3f83ca2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST000_COVER_91535531.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e1f8b1748679beb6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST001_91535531.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "ca523fb142875142",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST002_91535531.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "28c7d08cf9d68715",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST003_91535531.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "68c11d506b857875",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST004_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "288ab681e7636587",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST005_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e365dc3a11c9daa3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST006_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "f0d479ba559bbed3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST007_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "2764aabe07dd1902",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST008_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "dfa1daf347c528ff",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST009_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9a3d25d75da8f7fa",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST010_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "1f3c8f32fb2f0960",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST011_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6de522349cbafe7b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST012_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4908185c90cf4438",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST013_91535532.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "a6975f81a807f245",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST014_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "d1b2aacbfb817b9f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST015_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "0ee1caebb4867f71",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST016_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "723e9c8425bd277d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST017_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "a14499a01e990e2b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST018_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "443c62319cc6cfd4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154507_BURST019_91535533.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "42540b1b1824b3aa",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST000_COVER_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "03f641ed9d8c7bb6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST001_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3e15349c9ee8bc80",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST002_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "788b1eded8072901",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST003_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "02f16cf6aec65e56",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST004_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "569548908a6d5bfc",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST005_91535580.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "79da2303ef4b6297",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST006_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "2714cb86f72a39c7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST007_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4826245540c10e02",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST008_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e6ce0c9238e6b0a6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST009_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "802ab739bfff13c5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST010_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e79007b076c9a529",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST011_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "df9094c01e493bd5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST012_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e213c4097fa43f54",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST013_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "f3f536a1726d9108",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST014_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "199a5f5ead71ec01",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST015_91535581.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "89b14fba5280a97e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST016_91535582.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e0c11344d69ffed5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST017_91535582.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "dcd5d30b0293e065",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST018_91535582.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "ac7d6be54c8917c9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154549_BURST019_91535582.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9a6f83418fdf337e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST000_COVER_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "0b0f696c2d9c1740",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST001_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "21c56f177bde80f0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST002_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4def725c86788c7b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST003_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "576c37f81c4526c0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST004_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "421aab538daf81bb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST005_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "7a0a1575b16bc3f1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST006_91535595.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e123ac4364d5967e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST007_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "14c41339334bd824",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST008_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "a02bf66d563a9700",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST009_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "869f4bc486339109",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST010_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "41185a5ffeec4940",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST011_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "7aef77ab0bc7bb0b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST012_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e1153c187b043bc8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST013_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9471bde5e6edcb24",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST014_91535596.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4f8634ab79470fdd",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST015_91535597.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "7ffd46344bc064e9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST016_91535597.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "616512b366f4e421",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST017_91535597.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3a02519f6d679d0e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST018_91535597.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "490cda83f667eb00",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154556_BURST019_91535597.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "a1b7796f2e7fccd4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST000_COVER_91535654.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "5f836694803c0882",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST001_91535654.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "a9d31fc0b332d487",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST002_91535654.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3fe21d400e13e64e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST003_91535654.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e4ea7b7bf66d4838",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST004_91535654.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3bb75030af8372c5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST005_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c8b1d2208b2bcd7e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST006_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "732f9b9e6048646c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST007_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6a3188e38f994b24",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST008_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "062a39049de73e06",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST009_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c7a372a90ce6476b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST010_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "0d857eb8f27a34f9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST011_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "990e83f62a62e311",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST012_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "34efc1a30419b929",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST013_91535655.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "18a2d2802fc4e444",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST014_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "28fe80b8f5d798a4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST015_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "17ebb0c2db210be9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST016_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "098abd274ad15c4d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST017_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "29a27d604274023e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST018_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "eaebbd720df9c25e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154718_BURST019_91535656.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "cf0fbc41ef54ac81",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST000_COVER_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "ab84378a177148a3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST001_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "602c5cd896f093c8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST002_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6f6c3c340f543c67",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST003_91535678.jpg",
+      "reason": "label_not_verified:draft"
+    },
+    {
+      "id": "cb40925ed3f9d3d6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST004_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "02a3315f0bb1424e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST005_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "ecede5efcd518150",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST006_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "8d918407e8753422",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST007_91535678.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "fadef9c2efdd5b1d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST008_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e4395163df7b8716",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST009_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "fe2782482058fe71",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST010_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "f1d7c7c152e67b6e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST011_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "714c798d6cf79492",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST012_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3ef8b787f6f9a900",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST013_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "7af5906cae661a3d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST014_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "fa1802997691cb8b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST015_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c8e1cfdc28233e64",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST016_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "416c13eb96e6e90b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST017_91535679.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "077357c923af4261",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST018_91535680.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "bdbfc6e250bc7bfb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154743_BURST019_91535680.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9f5509d0966d88d7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST000_COVER_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "cb57ca7a5d353d7a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST001_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "18bc53c6ef4af958",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST002_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c7fddf70eb0ad87f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST003_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "f60028be122ebf26",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST004_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "eb77b62322961811",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST005_91535759.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "76e3300f0013ebf1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST006_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c2126b4f89720dc2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST007_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "1970a1c31ec20510",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST008_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "ca371c707ed0dcc4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST009_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "b3335130d3bc2bc3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST010_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "83023acbd5409fe3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST011_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3f3c4cab4f5d11ab",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST012_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3370d4a400f637e8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST013_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9980809adf2c5abd",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST014_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "089e5172266f5bbd",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST015_91535760.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3060a9e85ef607f7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST016_91535761.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "d6b3b28d0dc1c420",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST017_91535761.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "cc84232817a05274",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST018_91535761.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9992ace08e963687",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154902_BURST019_91535761.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "0db954aed3fd5700",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST000_COVER_91535855.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "623efbbfd6ded085",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST001_91535855.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4bbc8c25049f427f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST002_91535855.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6855f8b6e284501a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST003_91535855.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9d6fc3208637733c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST004_91535855.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "b5c48442fb1f75ad",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST005_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "11bbdaa6c5e1b124",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST006_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "1950a5892e64f791",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST007_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "cf7bdef6e5beb514",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST008_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "57f69bda5e8428b7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST009_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "2fa27adbe3062801",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST010_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "7b26ef8c903264f1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST011_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "db99b4c1c6d91c47",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST012_91535856.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "e43a25c2f8b5ce31",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST013_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "05c072f9d72144e9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST014_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "810c049d9398a2f6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST015_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6f785f06a3905041",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST016_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "230d0e6bf5adac05",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST017_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "260bc1e50b507efb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST018_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3f4e15cf7d68ed9c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154938_BURST019_91535857.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "2083b9f66cd1631b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST000_COVER_91535807.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9484c0eb50bd558a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST001_91535807.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "6a13a6477cabdf86",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST002_91535807.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "96771c47bcb6d2da",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST003_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "123d4239f1672fe1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST004_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "08c01cddf674629e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST005_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3b94870ad322dd3d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST006_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "f85adba5a111a23a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST007_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "cc389b36adb1cec1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST008_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "75c60fc82403c898",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST009_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "5059116b015d0bca",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST010.jpg",
+      "reason": "Exact duplicate image has conflicting reviewed face classes; exclude all copies"
+    },
+    {
+      "id": "4a2275e928a230d8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST010_91535808.jpg",
+      "reason": "Exact duplicate image has conflicting reviewed face classes; exclude all copies"
+    },
+    {
+      "id": "a4d6be79956027b3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST011_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "3e9c912b2741feea",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST012_91535808.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "d85d7308968670bb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST013_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "4807238df0279705",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST014_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "0090366a607e6493",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST015_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "9b817e422c31bc2f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST016_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "78c6d1368bbbed0c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST017_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "c73d97f8da9bb640",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST018_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "fefc6f3361b7dfc7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009154949_BURST019_91535809.jpg",
+      "reason": "Duplicate custom/public pixels or original source; keep first reviewed sample"
+    },
+    {
+      "id": "71ce550a8ab26df2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155442_BURST007.jpg",
+      "reason": "ambiguous_mask_transition: class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+    },
+    {
+      "id": "e474808afacc1d4d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155442_BURST008.jpg",
+      "reason": "ambiguous_mask_transition: class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+    },
+    {
+      "id": "5a48e0db93c3e872",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155442_BURST009.jpg",
+      "reason": "ambiguous_mask_transition: class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+    },
+    {
+      "id": "8d86108bd11e2a5a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST000_COVER.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "9b00abc53ed27b85",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bdd8513542d15347",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "fd9f4cbb54e3bbe4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "8bd6bff29f40a340",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "05428f76b6dfcbef",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "edc59575e4b1cc62",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "dcb07d3bbab40fb0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "4b5752cb8072b3f3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "66c919fbf9a31030",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "e8e291b0922404f3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ce043c70aa6f69a1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "136c15bc58bc7370",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1f1eacb536e02654",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155517_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "edc045e79bf57189",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST000_COVER.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "20f62dd93f395796",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ab1462c41143c6d6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f42413d7f6bbaf2c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7bfb73fdd7135235",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7ff3c7bd863d69e8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "63618d08fecba1f7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "2a255a2c0663e58d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "4545a86d256dcf1b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "df9bc51c3cde4a0e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "c460a06d518ea8fb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "eb46235891a3e274",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bfdbec150b025786",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "063ec8385fa96a1e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "91baa3e1c29792d9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ae6ff7b0a32029f5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "a8093a72caf0bd82",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f8db461142a7ebac",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3389b92862ac046e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155522_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f31078f93abcd9f0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155607_BURST000_COVER.jpg",
+      "reason": "label_not_verified:draft"
+    },
+    {
+      "id": "ed543cc1b86f5e92",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "8ba2bde85f6a98e9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7d975bc68c0e1ce9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "4f3aedae7b54d419",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "c6b8297f980714a2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "28b744a0cca08a79",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155627_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3c4b8e64e4e6c0e2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ff4c50e06515a81b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bc9ad74654ff2dcc",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "edbb334b3158f727",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0df785375c0b1f5a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "18e3911d0337d588",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "c5745b37277eac3b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0433cc07366120c3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "135c401a2c5d8024",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "47b512ee651492ca",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "dcd5a862ee040cb1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155754_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "5fab32f3582d54f6",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155851_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f7e21a56a647c465",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155851_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1d9c3c93df46cdb2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155851_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "212e316fa27a7703",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155851_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d11eedb9958da3b2",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155851_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "71847d6e4b95b614",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155856_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "2dd59e83eeee4c41",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155856_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "4d8d2ad2a76ac14a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155856_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "34e56b72de3c48e4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155856_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7b5d32b3689dcc24",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155856_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "14829f4bb2146592",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "77a6ee8ea93b27fa",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "097636554bab4e62",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "944d12e136b0af49",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0a137267fbf4349f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7bd0139b04ab1eb9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "66f7ffbb49de3f60",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "5d0dee925e2b7dea",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "159ca4c3ccee09e3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0acb0f17cf8efeee",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "8c934dfd743a30bf",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155912_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ebe5b056bfc74b55",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "22385d2fb499a5f0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1f15d67558b759e8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "15d4727e0032a82f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bfc5e876eb2fac39",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bcadd19037c0d922",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "6e3db4527cac01a3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "686743cfaaef2ed7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "8206b2098b90dbe0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "44ba47ee35243d4e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f1d31caa946e8de4",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ed8f221432401b15",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "384b65f258310e25",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1e450bf5bdbc8ea0",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bf1592db7243aea7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "52e1eafed72af89d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3c12c883c8f5f78a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "5a6a15f634895871",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155916_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "855591b20e957e99",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST000_COVER.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d5dd38c9bef1f765",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "86fff048fbc7ce7f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "c2d7bf7f953e2792",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "87ef32d995a1ab38",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7ef5f437a04e1423",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0a6e1496d32d3cbf",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "56aee325844713e7",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f95bc06dd9869908",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "08ab9ed248141736",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3069a159be3bf608",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0e2f71ad2299c840",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f873132097b86ba3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "a0c455e93f88dee8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "dff52312479da36d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "9a2c186b7f3829fb",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "591e4722a7cb57af",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bfce5d5622255cf5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "49eabffc8ba18d72",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155921_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1bcd438a7dab3845",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST000_COVER.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7ff3219c0342dd1f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "e80ccc615a97d3cc",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "08258af9aa50605e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "b9a7e115d7763c50",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "6714ef1e3114850a",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ba2f45a0c46325ac",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "608fc85f7bfd592c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0f4167f452578db3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "87e5b0931db33d8d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "2aebcf3de50a3a38",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155940_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f9663ebad9aad39c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST000_COVER.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0341c2c9df46d515",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "8a0dd26f1451af35",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST010.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f12d11f618c9b763",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "1a6a3c340e7baf06",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0b693ae59e43fb63",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155943_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "234074a29fa67c1e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "66604e80014ced46",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "a3399bec11fc1843",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "b7293e6fbc3cdfec",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "e9cbefa22327f073",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "843c35ea39570eb1",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST006.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f984bc14b83bd71e",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST007.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d4c046cdcac073a3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d13c1f5d1919538d",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "7cd918fe60da32d3",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST011.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "73012910c807d330",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST012.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "33d7cd739d565668",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST013.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "228b2b81c9ae4e5c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST014.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "f690244fbf8bd3c9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST015.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d2e65ecd7f92a258",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "4882483510ebbd73",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "87f2c6117c2ce692",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3f25bdade531510c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009155948_BURST019.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "ccaa97e6024e6adc",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST001.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "324a7d8dc9ebab01",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "eedc1b7bce5b8f2f",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "a594984cf9d7237c",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "cb7df97139bff950",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "27f4b4af95c5deff",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160019_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "5c0d341667adfa61",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST002.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3fab40b03b4d698b",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST003.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "feaffdc6c98a8a43",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST004.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "bbee5e40923a5d90",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST005.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "85ba004503474184",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST008.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "a5ac2b80305b8617",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST009.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "fb20e5792c8d80f9",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST016.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3a99e12ee3aebae5",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST017.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d80fe9f047b107d8",
+      "source_kind": "multi",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+      "source_relative": "IMG20261009160024_BURST018.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "d58aa4107833bf43",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_1.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "312023e7a0793838",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_5.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "3fcbdfeb5e92210f",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_10.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "0b9241e179137538",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_11.jpg",
+      "reason": "prediction_overlay_baked_into_image: Raw cam32_11.jpg visibly includes red WITHOUT MASK 79% text and rectangle from model output. User described saving the failed prediction screenshot; original JPEG needed."
+    },
+    {
+      "id": "c3cf1dfe04e94fa6",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_8.jpg",
+      "reason": "label_not_verified:excluded"
+    },
+    {
+      "id": "e5d18b384483258b",
+      "source_kind": "capture",
+      "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1",
+      "source_relative": "wore_incorrect/cam32_9.jpg",
+      "reason": "label_not_verified:excluded"
+    }
+  ],
+  "duplicate_annotation_conflicts": [
+    {
+      "hash_kind": "pixel_hash",
+      "hash": "6a97984acfb9ee78f83035910665d086ad92634e7faae2540887e499e4b0dd7b",
+      "rows": [
+        {
+          "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+          "source_kind": "multi",
+          "id": "5059116b015d0bca",
+          "index": 342,
+          "signature": [
+            0,
+            1
+          ]
+        },
+        {
+          "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+          "source_kind": "multi",
+          "id": "4a2275e928a230d8",
+          "index": 343,
+          "signature": [
+            1,
+            0
+          ]
+        }
+      ],
+      "reason": "Same exact image/source has conflicting classes by left-to-right face order; exclude all until reviewed"
+    },
+    {
+      "hash_kind": "source_sha256",
+      "hash": "28cda81ddac324764149cffabf602b5d690b669d378150f2193f11dc6b4632d6",
+      "rows": [
+        {
+          "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+          "source_kind": "multi",
+          "id": "5059116b015d0bca",
+          "index": 342,
+          "signature": [
+            0,
+            1
+          ]
+        },
+        {
+          "review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1",
+          "source_kind": "multi",
+          "id": "4a2275e928a230d8",
+          "index": 343,
+          "signature": [
+            1,
+            0
+          ]
+        }
+      ],
+      "reason": "Same exact image/source has conflicting classes by left-to-right face order; exclude all until reviewed"
+    }
+  ],
+  "prepared_statistics": {
+    "images": 1812,
+    "bounding_boxes": 5404,
+    "class_distribution": {
+      "with_mask": 3385,
+      "without_mask": 1066,
+      "mask_weared_incorrect": 953
+    }
+  },
+  "non_person_boxes_removed_from_export": 83,
+  "custom_accepted": 980,
+  "custom_excluded": 343,
+  "custom_accepted_by_source": {
+    "phone": 266,
+    "multi": 683,
+    "esp32": 26,
+    "capture": 5
+  },
+  "custom_excluded_by_source": {
+    "phone": 14,
+    "multi": 323,
+    "capture": 6
+  }
+}

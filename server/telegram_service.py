@@ -151,7 +151,7 @@ class TelegramService:
         counts = [sum(d["class_id"] == cls for d in detections) for cls in range(3)]
         def ms(key):
             return "chưa đo" if result.get(key) is None else f"{result[key]:.1f} ms"
-        lines = ["ESP32-CAM • YOLO Face Mask", f"Sự kiện: {result['timestamp']}",
+        lines = [("Webcam laptop" if result["source"] == "webcam" else "ESP32-CAM") + " • YOLO Face Mask", f"Sự kiện: {result['timestamp']}",
                  f"Request: {result['request_id']}", f"Nguồn: {result['source']}",
                  f"Khuôn mặt: {len(detections)} | Đúng {counts[0]} / Không {counts[1]} / Sai {counts[2]}",
                  f"Inference: {ms('inference_ms')}", f"RTT: {ms('roundtrip_ms')} | Toàn trình: {ms('total_ms')}"]

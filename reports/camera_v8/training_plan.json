@@ -1,0 +1,19 @@
+{
+  "created": "2026-10-11T15:02:30.308999+00:00",
+  "initialization": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\models\\camera_v7\\face_mask_best.pt",
+  "initialization_sha256": "722614b198153c75c2248d1e0e9f7af9a0420123d62d3438f0911d9aa95bbaef",
+  "review_manifest_sha256": "d080d2876aa444d67346d21e287a61b24b2af8857bf8532d63d1ed56e7a00730",
+  "additional_captures": 5,
+  "classes_human_verified": true,
+  "geometry_policy": "user-authorized assistant context expansion; original human geometry unchanged and preserved; expanded geometry not human-reverified",
+  "epochs": 8,
+  "patience": 3,
+  "lr0": 4e-05,
+  "optimizer": "AdamW",
+  "imgsz": 512,
+  "batch": 8,
+  "seed": 42,
+  "checkpoint_selection": "public validation fitness; test not used",
+  "deployment": "separate candidate; V3 and V7 retained",
+  "camera_evaluation_policy": "new five are training/development, not independent test"
+}

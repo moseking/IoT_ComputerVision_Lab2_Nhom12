@@ -1,231 +1,196 @@
-# Lab 2 — Hệ thống IoT nhận diện khẩu trang
+# IoT Face Mask Detection — Nhóm 12
 
-**Nhóm 12**
-
-Bài lab xây dựng hệ thống nhận diện khẩu trang từ ảnh của ESP32-CAM. Model
-YOLOv8n xác định vị trí từng khuôn mặt và phân loại trạng thái đeo khẩu trang.
-Kết quả được hiển thị trên dashboard, gửi qua Telegram và lưu cùng số đo độ trễ.
-Hệ thống hỗ trợ suy luận trên máy tính hoặc trên cloud Render.
-
-## 1. Mục tiêu
-
-- Thu nhận ảnh từ ESP32-CAM qua Wi-Fi.
-- Huấn luyện model nhận diện ba trạng thái khẩu trang.
-- Nhận diện nhiều khuôn mặt trong cùng một ảnh và vẽ bounding box.
-- Xây dựng dashboard để chụp ảnh, xem Live và kiểm tra kết quả.
-- Gửi ảnh nhận diện qua Telegram.
-- Xuất model thành một file ONNX để triển khai cloud.
-- Đo thời gian suy luận, thời gian phản hồi và thời gian chờ toàn trình.
-
-## 2. Các nhãn nhận diện
+Hệ thống nhận diện từng khuôn mặt và phân loại khẩu trang bằng YOLOv8n đã
+fine-tune. Hỗ trợ webcam laptop, ESP32-CAM, ảnh JPEG/PNG, chụp một ảnh hoặc Live,
+hiển thị box, gửi Telegram và lưu kết quả cùng độ trễ trong SQLite.
 
 | ID | Class | Ý nghĩa |
 |---:|---|---|
-| 0 | `with_mask` | Đeo đúng: che kín mũi và miệng |
+| 0 | `with_mask` | Che kín mũi và miệng |
 | 1 | `without_mask` | Không đeo khẩu trang |
-| 2 | `mask_weared_incorrect` | Đeo sai: hở mũi/miệng, kéo xuống cằm hoặc treo một bên tai |
+| 2 | `mask_weared_incorrect` | Hở mũi/miệng, kéo xuống cằm hoặc treo một bên tai |
 
-Confidence hiển thị cạnh mỗi box là độ tin cậy của dự đoán, không phải độ chính
-xác tổng thể của model. Chất lượng model được đánh giá bằng Precision, Recall
-và mAP trên tập dữ liệu đánh giá riêng.
-
-## 3. Kiến trúc hệ thống
-
-```mermaid
-flowchart LR
-    CAM[ESP32-CAM] -->|Ảnh JPEG| API[Backend local · FastAPI]
-    API --> LOCAL[YOLOv8n · PyTorch]
-    API --> CLOUD[Render · ONNX Runtime]
-    LOCAL --> API
-    CLOUD --> API
-    API --> WEB[Dashboard]
-    API --> TELE[Telegram]
-    API --> DB[SQLite]
-```
-
-Backend local lấy ảnh từ camera, chuyển ảnh tới nơi suy luận được chọn rồi trả
-box, nhãn, confidence và ảnh đã nhận diện cho dashboard. Camera và laptop cần
-kết nối cùng mạng. Trong chế độ cloud, laptop gửi ảnh tới Render qua HTTPS.
-
-| Thành phần | Công nghệ | Vai trò |
-|---|---|---|
-| Thiết bị | ESP32-CAM AI Thinker | Chụp ảnh, cung cấp ảnh JPEG, điều khiển flash |
-| Model | YOLOv8n | Phát hiện khuôn mặt và phân loại khẩu trang |
-| Backend local | Python, FastAPI, PyTorch, OpenCV | Kết nối camera, chạy model, trả kết quả |
-| Cloud | Render, Docker, ONNX Runtime CPU | Chạy suy luận với model ONNX |
-| Dashboard | HTML, CSS, JavaScript | Hiển thị ảnh, nhãn, thống kê và độ trễ |
-| Lưu trữ | SQLite | Lưu số mặt theo nhãn và các số đo của mỗi lượt |
-| Thông báo | Telegram Bot API | Gửi ảnh và kết quả nhận diện |
-
-## 4. Chức năng
-
-- **Chụp + nhận diện:** lấy một ảnh từ camera, vẽ box, giữ nguyên kết quả và gửi
-  chính ảnh đã nhận diện lên Telegram.
-- **Live nhận diện:** liên tục lấy ảnh mới và cập nhật box trên từng frame.
-- **Xem ảnh:** dừng Live và giữ ảnh đang xem để kiểm tra nhãn.
-- **Bật/Tắt flash:** điều khiển đèn trên ESP32-CAM.
-- **Lưu ảnh gốc:** tải ảnh của frame đang xem trước khi vẽ box.
-- **Kiểm thử ảnh:** tải JPEG/PNG từ máy lên để chạy model.
-- **Máy tính / Cloud Render:** chọn nơi xử lý ảnh.
-- **Thống kê:** hiển thị số mặt đeo đúng, không đeo, đeo sai và kết quả từng lượt;
-  xuất dữ liệu CSV.
-- **Cảnh báo Telegram:** Live gửi cảnh báo khi có nhãn không đeo/đeo sai theo
-  khoảng cách gửi đã cấu hình.
-
-Số liệu được cộng theo lượt nhận diện. Một người xuất hiện trong nhiều frame
-Live được tính nhiều lần; đây không phải chức năng đếm người duy nhất.
-
-## 5. Cấu trúc project
+## Thành phần và cấu trúc
 
 ```text
 Lab2_FaceMask/
-├── esp32_cam/       # Firmware và cấu hình ESP32-CAM
-├── server/          # Backend local, API cloud, model và Telegram
-├── web/             # Dashboard
-├── scripts/         # Xử lý dữ liệu, train, evaluate và cấu hình cloud
-├── data/            # Dữ liệu ảnh, nhãn YOLO và SQLite
-├── models/          # Checkpoint PyTorch và model ONNX
-├── cloud/render/    # Dockerfile và cấu hình triển khai Render
-├── docs/            # Tài liệu kỹ thuật
-└── requirements.txt
+├── README.md, .env.example, .gitignore
+├── requirements.txt              # Backend local và công cụ dữ liệu/train
+├── server/                       # API local, inference và các module API cloud
+├── web/                          # Dashboard và webcam trình duyệt
+├── esp32_cam/                    # Firmware và config.h.example
+├── cloud/
+│   ├── cloudrun/                 # Dockerfile, ignore và dependencies GCP
+│   └── render/                   # Gói Render tương thích
+├── models/
+│   ├── camera_v7/                # Face Mask V7 .pt và metadata
+│   └── cloud_v7/                 # V7 ONNX và manifest/checksum
+├── data/raw/, data/processed/    # Dataset, nhãn, review và manifest trên máy
+├── dataset/                      # Bộ YOLO legacy, giữ cho pipeline/test hiện có
+├── scripts/                      # Xử lý dữ liệu, train/evaluate và vận hành
+├── tests/                        # Python unittest và kiểm tra JavaScript
+├── results/training/             # args, metrics, checkpoint và metadata các run
+├── results/evaluation/           # Kết quả đánh giá đã lưu
+├── reports/                      # Provenance/ledger còn được dataset/model dùng
+├── Dockerfile, render.yaml       # API cloud Render
+└── Dockerfile.local              # Backend local trong container
 ```
 
-## 6. Chạy trên máy tính
+Giữ các tên `server`, `web`, `data`, `dataset`, `scripts` để đường dẫn hiện có
+tiếp tục hoạt động. Dataset, checkpoint cũ, `.venv`, cache và output lớn được giữ
+trên máy, loại khỏi Git theo `.gitignore`; không nằm trong source chia sẻ mặc định.
+Tài liệu hướng dẫn chính thức là README này. `cloud/render/README.md` là template
+được `prepare_cloud.py` đọc; README trong dataset là output/provenance của pipeline.
 
-### Chuẩn bị môi trường
+## Local và cloud
 
-Cần Python 3.12, Arduino IDE và board package ESP32. Trong terminal PowerShell:
+```text
+Webcam laptop / ESP32-CAM / ảnh kiểm thử
+                 ↓
+Dashboard local → Backend local
+                 ├── Máy tính: model Face Mask V7 .pt
+                 └── Google Cloud Run: API + V7 ONNX
+                              ↑
+                 Supabase Storage private: file model
+```
+
+Dashboard, SQLite và Telegram chạy trên laptop. Backend local giữ khóa cloud,
+gửi ảnh tới GCP và nhận box/nhãn/ảnh đã vẽ. Trình duyệt không nhận khóa GCP.
+Chọn Cloud mà gặp lỗi sẽ báo lỗi; không tự chuyển sang model local.
+Render là lựa chọn tương thích riêng, chỉ dùng khi cấu hình URL/key Render.
+
+## Cài đặt và chạy
+
+Chạy tại thư mục dự án trong terminal PowerShell của VS Code. Dùng Python 3.12:
 
 ```powershell
-# Máy mới: tải repository đầy đủ rồi mở thư mục vừa clone.
-git clone https://github.com/moseking/IoT_ComputerVision_Lab2_Nhom12.git
-cd IoT_ComputerVision_Lab2_Nhom12
-py -3.12 -m venv .venv
+python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-Nếu chưa có `.env`, tạo từ `.env.example`:
+Nếu chưa có `.env`, sao chép `.env.example` thành `.env`. Giữ nguyên `.env` khi
+máy đã được cấu hình; không ghi đè bằng file mẫu. Các biến chính:
 
-```powershell
-if (-not (Test-Path .env)) { Copy-Item .env.example .env }
-```
-
-Cấu hình các biến chính trong `.env`:
-
-| Biến | Nội dung |
+| Biến | Công dụng |
 |---|---|
-| `MODEL_PATH` | Đường dẫn tới checkpoint đã train, ví dụ `models/camera_v7/face_mask_best.pt` |
-| `ESP32_CAMERA_URL` | URL camera đọc từ Serial Monitor |
-| `DEVICE` | `auto` hoặc `cpu` |
-| `IMAGE_SIZE` | Kích thước suy luận, mặc định dùng `512` trong cấu hình mẫu |
-| `CONFIDENCE_THRESHOLD` | Ngưỡng confidence, ví dụ `0.35` |
-| `LATENCY_DB_PATH` | Đường dẫn file SQLite |
+| `MODEL_PATH` | `models/camera_v7/face_mask_best.pt` cho inference local |
+| `API_BASE_URL` | `http://127.0.0.1:8000` cho dashboard local |
+| `DEFAULT_CAMERA_SOURCE` | `webcam` hoặc `esp32` |
+| `DEFAULT_INFERENCE_TARGET` | `local` hoặc `cloud` |
+| `CLOUD_API_URL` | URL API Cloud Run/Render, không có `/docs` ở cuối |
+| `CLOUD_API_KEY` | Khóa của API cloud, chỉ đặt phía backend |
+| `CLOUD_MODEL_SHA256` | SHA-256 của V7 ONNX ở phần model bên dưới |
+| `CLOUD_TIMEOUT_SECONDS` | Timeout gọi cloud; bản demo dùng `120` |
+| `LATENCY_DB_PATH` | SQLite local; mặc định `data/latency.db` |
+| `ESP32_CAMERA_URL` | IP/URL từ Serial Monitor, chỉ cần khi dùng ESP32 |
+| `TELEGRAM_ENABLED` | Bật/tắt gửi Telegram |
+| `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Thông tin bot và nơi nhận |
 
-### Chạy trên máy của thành viên nhóm
-
-Repository có checkpoint đã train và dashboard; không cần dataset hay train lại
-để chạy nhận diện. Sau khi cài thư viện và tạo `.env`, có thể khởi động backend,
-chọn **Máy tính** và gửi ảnh JPEG/PNG để kiểm thử ngay, kể cả khi chưa có camera.
-Máy không có GPU vẫn chạy được với `DEVICE=cpu`.
-
-Để chụp hoặc xem Live, máy của thành viên phải truy cập được IP ESP32-CAM và
-điền IP hiện tại vào `ESP32_CAMERA_URL`. Nếu cùng dùng một board đã nạp đúng
-firmware và cùng mạng thì không cần nạp lại. Nếu dùng board khác, làm theo bước
-cấu hình ESP32-CAM bên dưới.
-
-Telegram cần token/chat ID riêng trong `.env`; Render cần URL và shared key của
-service nhóm. Các giá trị này trao đổi riêng trong nhóm, không nằm trong GitHub.
-Chỉ một backend nên bật `TELEGRAM_COMMANDS_ENABLED=true` với cùng bot để tránh
-các máy cùng nhận lệnh; máy còn lại đặt biến này thành `false`.
-SQLite được tạo trên từng máy khi chạy, nên các lượt nhận diện trên máy khác
-không tự đồng bộ. Dataset không nằm trong repository; muốn train lại cần chép
-riêng dữ liệu và nhãn đã xác minh.
-
-### Cấu hình ESP32-CAM
-
-1. Tạo `esp32_cam/config.h` từ `esp32_cam/config.h.example` nếu chưa có.
-2. Điền tên và mật khẩu Wi-Fi 2.4 GHz.
-3. Đặt `INFERENCE_ENABLED=false` để dashboard chủ động lấy ảnh khi chụp hoặc Live.
-4. Mở `esp32_cam/esp32_cam.ino`, chọn board **AI Thinker ESP32-CAM** và đúng cổng COM.
-5. Upload firmware, reset board rồi đọc địa chỉ IP trong Serial Monitor.
-6. Điền IP vào `ESP32_CAMERA_URL` hoặc ô Camera URL trên dashboard.
-
-### Khởi động backend
+Chạy backend và dashboard:
 
 ```powershell
-.\.venv\Scripts\python.exe -m uvicorn server.main:app --host 0.0.0.0 --port 8000
+.\.venv\Scripts\python.exe -m uvicorn server.main:app --host 127.0.0.1 --port 8000
 ```
 
-Mở dashboard tại `http://127.0.0.1:8000`. Tài liệu API nằm tại `/docs` và trạng
-thái model tại `/health`. Model cần được nạp thành công trước khi nhận diện local.
+Mở [dashboard local](http://127.0.0.1:8000/) bằng Chrome/Edge. Chọn
+**Webcam laptop → Google Cloud Run**, bấm **Bật webcam** và cấp quyền camera,
+rồi **Chụp + nhận diện** hoặc **Live nhận diện**. Webcam không cần IP.
+Sau thay đổi `.env`, khởi động lại backend; Ctrl+F5 để cập nhật giao diện.
 
-## 7. Dữ liệu và huấn luyện
+**Xem ảnh** dừng Live và giữ kết quả. Chụp một ảnh cũng giữ nguyên kết quả sau
+khi nhận xong. Webcam được tắt khi dừng/đổi nguồn/chuyển tab nền. Flash chỉ dành
+cho ESP32-CAM. **Lưu ảnh gốc** tải đúng JPEG của frame webcam/ESP32 đang xem.
+Ảnh offline được gửi qua mục **Kiểm thử ảnh offline**.
 
-Dữ liệu gồm bộ Face Mask Detection và ảnh tự thu thập bằng điện thoại/ESP32-CAM.
-Nhãn Pascal VOC XML được chuyển sang YOLO; ảnh bổ sung được kiểm tra class và
-bounding box trước khi đưa vào train. Box của trường hợp đeo sai cần bao quát
-cả khuôn mặt và phần khẩu trang liên quan.
+Nếu dùng ESP32-CAM, tạo `esp32_cam/config.h` từ file mẫu, đặt Wi-Fi và URL backend,
+nạp `esp32_cam.ino`, đọc IP trong Serial rồi cấu hình `ESP32_CAMERA_URL`.
+Backend nhận kết nối từ board cần bind `--host 0.0.0.0` và cho phép cổng 8000
+trên mạng nội bộ. Không đưa config Wi-Fi thật vào Git.
 
-Chia dữ liệu train/validation/test để đánh giá riêng. Ảnh đã dùng train không
-được coi là mẫu kiểm thử độc lập. Có thể fine-tune từ trọng số YOLO pretrained.
+## Model và dữ liệu huấn luyện
 
-Ví dụ train với bộ dữ liệu đã chuẩn bị:
+| Artifact chính thức | SHA-256 |
+|---|---|
+| `models/camera_v7/face_mask_best.pt` | `722614b198153c75c2248d1e0e9f7af9a0420123d62d3438f0911d9aa95bbaef` |
+| `models/cloud_v7/face_mask_v7.onnx` | `f1fc04ca98bace9f1a1a5537d83fc9c52574514c0641959084c94a9f0750cbf4` |
+
+Input inference 512, confidence 0.35, IoU 0.45, NMS chung giữa class. ONNX là
+bản xuất FP32/opset 17 của checkpoint Face Mask V7. `yolov8n.pt` tại root là
+pretrained COCO dùng khởi tạo train, không phải model Face Mask phục vụ demo.
+
+Dataset public gốc nằm ở `data/raw/facemask_detection`; bộ V7 đã chuẩn bị ở
+`data/processed/facemask_camera_v7`. Giữ nguyên ảnh, TXT nhãn YOLO, `data.yaml`,
+`split_manifest.json`, manifest review và ledger loại ảnh/box. Box đeo sai cần
+bao quát mặt và phần khẩu trang liên quan. Ảnh đã dùng train/debug không phải
+tập kiểm thử độc lập. Checkpoint chọn theo validation, không chọn theo test.
+
+Dataset không được đóng gói trong Git. Thành viên cần bản dữ liệu riêng có quyền
+sử dụng; chép vào đúng đường dẫn trước khi audit/train. Các `data.yaml` có thể chứa
+đường dẫn tuyệt đối của máy tạo dữ liệu: điều chỉnh bản sao trên máy mới hoặc chuẩn
+bị lại dữ liệu bằng script, không coi việc clone source là đã có dataset.
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/train.py --data data/processed/facemask_camera_v7/data.yaml --pretrained --epochs 30 --imgsz 512 --batch 8 --workers 0 --device auto --run-name lab2_facemask --no-publish
+.\.venv\Scripts\python.exe scripts/audit_prepared_dataset.py --data data/processed/facemask_camera_v7/data.yaml --output results/prepared_dataset_report.json
+.\.venv\Scripts\python.exe scripts/train.py --data data/processed/facemask_camera_v7/data.yaml --init-checkpoint models/camera_v7/face_mask_best.pt --epochs 12 --imgsz 512 --batch 8 --workers 0 --seed 42 --optimizer AdamW --lr0 0.00008 --patience 5 --device auto --run-name facemask_continue --no-publish
 ```
 
-Checkpoint tốt nhất được chọn theo validation và lưu trong thư mục của run.
-Sau đánh giá, chọn checkpoint dùng cho `MODEL_PATH`. Bản chạy cloud sử dụng file
-`models/cloud_v7/face_mask_v7.onnx` đã xuất từ checkpoint của bài lab.
+Lệnh thứ hai tạo run fine-tune mới, không phải lệnh tái tạo byte-identical V7 và
+không ghi đè model chính thức. Để kiểm tra cấu hình V7 đã dùng, xem
+`models/camera_v7/model_metadata.json`, `results/training/<run>/args.yaml`,
+`results.csv`, metadata và manifest dataset. Các script chuyển VOC, review,
+build dataset, evaluate và xuất cloud được giữ trong `scripts/`; xem `--help`
+trước khi dùng. Chạy demo không cần train lại.
 
-## 8. Telegram
+## API cloud và độ trễ
 
-Đặt `TELEGRAM_ENABLED=true`, `TELEGRAM_BOT_TOKEN` và `TELEGRAM_CHAT_ID` trong
-`.env`. `TELEGRAM_COOLDOWN_SECONDS` quy định khoảng cách gửi cảnh báo Live;
-`TELEGRAM_ALERT_MODE=violations` chỉ cảnh báo khi có người không đeo hoặc đeo sai.
-Nút **Chụp + nhận diện** yêu cầu gửi ảnh đang chụp dù kết quả thuộc nhãn nào.
+Cloud Run: `https://facemask-v7-ppk526twwq-as.a.run.app`.
+[Health](https://facemask-v7-ppk526twwq-as.a.run.app/health) và
+[Swagger](https://facemask-v7-ppk526twwq-as.a.run.app/docs) dùng để kiểm tra API.
+`GET /model/info` và `POST /predict` yêu cầu header `X-API-Key`; predict nhận
+multipart field `file` là JPEG/PNG. API cloud không phục vụ dashboard hay SQLite.
 
-## 9. Triển khai Render
-
-Repository đầy đủ gồm mã nguồn local, firmware, dashboard, công cụ train và
-model. Dockerfile ở thư mục gốc chỉ đóng gói API cloud ONNX để chạy trên Render.
-Chuẩn bị mã nguồn đưa lên GitHub và shared key:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/prepare_repository.py
-.\.venv\Scripts\python.exe scripts/configure_cloud.py --init-key
-```
-
-Đưa nội dung `.runtime/deployment/full_lab2/source` lên repo GitHub. Snapshot
-này chứa mã nguồn cùng checkpoint local và model ONNX; `.env`, Wi-Fi config,
-môi trường Python, dataset ảnh và SQLite giữ trên máy. Trên Render,
-tạo Web Service từ repo và chọn **Docker**, **Free**, Dockerfile `./Dockerfile`,
-health check `/health`. Đặt `CLOUD_API_KEY` và `CLOUD_MODEL_SHA256` theo file
-`.runtime/cloud/render_secrets.env` trên máy.
-
-Khi service sẵn sàng, cấu hình URL của Render:
-
-```powershell
-.\.venv\Scripts\python.exe scripts/configure_cloud.py --url https://TEN-SERVICE.onrender.com
-```
-
-Khởi động lại backend local, tải lại dashboard và chọn **Cloud Render**. Ảnh được
-gửi từ laptop tới cloud; dashboard và camera vẫn dùng kết nối local. File model
-nằm trong Docker image. SQLite và chức năng Telegram chạy trên laptop.
-
-## 10. Đo độ trễ và kiểm thử
+Supabase private lưu object `facemask-models/v7/face_mask_v7.onnx`. Container
+tải model khi startup, kiểm SHA-256, nạp ONNX Runtime rồi mới sẵn sàng. Dockerfile
+Cloud Run không nhúng model/secret vào image. Signed URL là secret: gói này kiểm
+thời hạn tối đa 7 ngày, còn tối thiểu 1 giờ khi startup; nên gia hạn trước 24–48 giờ.
+URL hết hạn làm container mới không tải được model. Gia hạn và cập nhật revision
+là thao tác cloud riêng, cần được duyệt; không tự đổi bucket thành public.
 
 | Số đo | Phạm vi |
 |---|---|
-| Model inference | Preprocess + model + NMS tại nơi suy luận |
-| Round trip cloud | Laptop bắt đầu gửi ảnh tới Render → nhận hết response |
-| End-to-end | Dashboard yêu cầu chụp/test → nhận hết kết quả, gồm bước lấy ảnh và xử lý |
+| Inference | Preprocess + model + NMS tại nơi suy luận |
+| Round trip cloud | Backend laptop gửi ảnh → nhận hết response cloud |
+| End-to-end | Bắt đầu chụp/gửi ảnh → nhận đủ kết quả trên client, không gồm vẽ giao diện |
+| Capture webcam | Lấy frame và mã hóa JPEG trong trình duyệt |
 
-`capture_ms` chỉ có giá trị khi thiết bị cung cấp thời gian lấy frame thực tế.
-Thời gian gọi `/capture` qua mạng được hiển thị riêng, không thay cho `capture_ms`.
+Lịch sử SQLite lưu từng request và số mặt theo ba nhãn; không phải số người duy nhất.
+Nút chụp yêu cầu gửi ảnh qua Telegram nếu đã cấu hình; Live theo chính sách
+`TELEGRAM_ALERT_MODE` và cooldown. Confidence hiển thị trên box là độ tin cậy của
+dự đoán, không phải độ chính xác đo trên toàn bộ dataset.
 
-Khi demo, kiểm tra ba trạng thái khẩu trang, ảnh có một/nhiều mặt, flash, Telegram
-và chế độ local/cloud. Đối chiếu box, nhãn và confidence với ảnh đang xem; xuất
-CSV để tổng hợp số liệu. Độ chính xác phụ thuộc dữ liệu huấn luyện, ánh sáng,
-góc camera, kích thước mặt và cách đeo khẩu trang.
+## Kiểm thử
+
+Tests dùng database/thư mục tạm và tắt Telegram. Không kiểm thử bằng database demo:
+
+```powershell
+$env:TELEGRAM_ENABLED='false'
+$env:TELEGRAM_COMMANDS_ENABLED='false'
+$env:CLOUD_API_URL=''
+$env:CLOUD_API_KEY=''
+$env:TEST_MODEL_PATH=(Resolve-Path models/camera_v7/face_mask_best.pt).Path
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests -p "test_*.py"
+node --test tests/test_live_ui.cjs tests/test_webcam.cjs
+```
+
+`TEST_MODEL_PATH` bật các ca inference thật; test dữ liệu cần dataset local.
+Sau khi test, đóng terminal đó hoặc bỏ các biến tạm trước khi chạy demo cloud.
+
+Kiểm tra build Linux cục bộ bằng Docker Desktop, không push/deploy:
+
+```powershell
+docker build --platform linux/amd64 -f cloud/cloudrun/Dockerfile -t facemask-cloudrun-local:v7 .
+```
+
+Giữ `.env`, `config.h`, signed URL, API key và credentials ngoài Git. Các file
+ONNX/PT chính thức được `.gitignore` cho phép riêng; dataset và output lớn vẫn
+được giữ local để chia sẻ qua kênh lưu trữ riêng.

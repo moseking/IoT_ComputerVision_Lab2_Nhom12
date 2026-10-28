@@ -1,0 +1,141 @@
+{
+  "authorization": "user_requested_mask_context",
+  "authorization_evidence": "User asked to use new captures for training and make incorrect-mask boxes wider by default on 2026-10-11.",
+  "review_sources": {
+    "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\additional_review_v1": {
+      "manifest_sha256": "d080d2876aa444d67346d21e287a61b24b2af8857bf8532d63d1ed56e7a00730",
+      "rows": [
+        {
+          "id": "10e56d9f5bba4757",
+          "processed_sha256": "1ce269508246e40dd8b7e5646cd3073da51a5b77d49b0f5919afc1b69839b600",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                183.71483813480626,
+                164.5028140010976,
+                462.2889371988456,
+                401.0506291172605
+              ]
+            }
+          ],
+          "expanded_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                160,
+                124,
+                538,
+                480
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4d080696fa2246e0",
+          "processed_sha256": "6aa79859d5e1893959227b43209add20529bb29a8926f4231f16dbd2c262bf29",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                134.662109375,
+                149.34326171875,
+                340.17405700683594,
+                377.69232177734375
+              ]
+            }
+          ],
+          "expanded_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                102,
+                128,
+                466,
+                480
+              ]
+            }
+          ]
+        },
+        {
+          "id": "75a51358c1389a19",
+          "processed_sha256": "18e3bf6f9cd330889d25df66efeb4ba8ae87321f1743e90ff7cbbca7503b32a4",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                142.88931473221075,
+                166.90431251143335,
+                402.2514128873072,
+                407.0543696674758
+              ]
+            }
+          ],
+          "expanded_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                112,
+                149,
+                487,
+                480
+              ]
+            }
+          ]
+        },
+        {
+          "id": "abf6050093cc8323",
+          "processed_sha256": "66a493be447094bfbc791466ecd0cf69120f3395e336d9181cf2479c18e2d47e",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                415.77197265625,
+                209.43984985351562,
+                619.6056060791016,
+                440.56101989746094
+              ]
+            }
+          ],
+          "expanded_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                398,
+                205,
+                640,
+                480
+              ]
+            }
+          ]
+        },
+        {
+          "id": "d06713306806263c",
+          "processed_sha256": "c03de618886741c4bbd2e4f63925ede5d0c50f390d96eebdb7f6b9b2963a1d8f",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                360.2251458692303,
+                44.42776252058004,
+                617.185768244613,
+                288.18010752149473
+              ]
+            }
+          ],
+          "expanded_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                339,
+                29,
+                640,
+                378
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

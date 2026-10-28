@@ -1,0 +1,12 @@
+{
+  "activated_at": "2026-10-11T14:25:15.806284+00:00",
+  "runtime_checkpoint": "models/camera_v7/face_mask_best.pt",
+  "checkpoint_sha256": "722614b198153c75c2248d1e0e9f7af9a0420123d62d3438f0911d9aa95bbaef",
+  "baseline_checkpoint": "models/face_mask_best.pt",
+  "baseline_sha256": "d66dec3404992fe0c227b099ea47069c117e41739ac7e296219a857eeaf95764",
+  "baseline_unchanged": true,
+  "selection_basis": "Best checkpoint within new run by public validation fitness; separate runtime-NMS public validation also improved over V3. Test not used.",
+  "baseline_runtime_mAP50_95": 0.5124607881473136,
+  "candidate_runtime_mAP50_95": 0.5315245536223178,
+  "fresh_camera_evaluation": "pending user testing; previous 26 are train/development"
+}

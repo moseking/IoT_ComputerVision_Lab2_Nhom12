@@ -9,13 +9,14 @@ const html = fs.readFileSync(path.join(root, 'web/index.html'), 'utf8');
 function setup() {
   const nodes = new Map();
   const make = () => ({textContent:'', hidden:false, disabled:false, className:'', style:{}, children:[],
-    attrs:{}, click(){this.clicked=true}, classList:{toggle(){}}, append(...items){this.children.push(...items)},
+    attrs:{}, pause(){}, click(){this.clicked=true}, classList:{toggle(){}}, append(...items){this.children.push(...items)},
     replaceChildren(...items){this.children=items}, setAttribute(k,v){this.attrs[k]=String(v)},
     removeAttribute(k){delete this.attrs[k]; if(k==='src')this.src=''}, addEventListener(){},
     querySelector(name){return this[name] || (this[name]=make())}});
   for (const id of html.matchAll(/id="([^"]+)"/g)) nodes.set(id[1],make());
   let pending=[], calls=[],requests=[],timers=[];
-  const context = vm.createContext({console, document:{getElementById:id=>nodes.get(id),createElement:make,body:{appendChild(){}}},
+  const context = vm.createContext({console, document:{getElementById:id=>nodes.get(id),createElement:make,addEventListener(){},body:{appendChild(){}}},
+    FormData, btoa, WebcamCapture: require(path.join(root, "web/webcam.js")).WebcamCapture,
     location:{origin:'http://127.0.0.1:8000'}, window:{addEventListener(){}},
     URL:{createObjectURL:()=> 'blob:test-result',revokeObjectURL(){}}, Blob,Uint8Array,atob,
     performance:{now:()=> 120}, AbortSignal, setTimeout:(fn,ms)=>{timers.push({fn,ms});return timers.length},clearTimeout(){},
@@ -194,4 +195,88 @@ test('changing view clears current label chips and cannot keep stale class count
   assert.equal(s.nodes.get('currentCounts').children[2].children[1].textContent,2);
   s.run('pendingFrame("pending","working")');assert.equal(s.nodes.get('currentCounts').hidden,true);
   assert.equal(s.nodes.get('currentCounts').children.length,0);
+});
+
+test('webcam manual capture needs no IP, routes to /predict, keeps raw JPEG and requests Telegram',async()=>{
+  const s=setup();s.run('cameraSource="webcam";cameraBase="";webcam.capture=async()=>({blob:new Blob(["ORIGINAL"],{type:"image/jpeg"}),capture_ms:2});');
+  const work=s.nodes.get('captureButton').onclick();await new Promise(r=>setImmediate(r));
+  assert.deepEqual(s.calls,['/predict']);const data=s.requests[0].options.body;
+  assert.equal(data.get('source'),'webcam');assert.equal(data.get('send_telegram'),'true');assert.equal(data.get('capture_ms'),'2');
+  assert.equal(await data.get('file').text(),'ORIGINAL');
+  s.resolve({text:async()=>JSON.stringify({request_id:'webcam1',source:'webcam',capture_ms:2,detections:[],detection_count:0,annotated_image_base64:'ANNOTATED',telegram_delivery:{requested:true,state:'queued'}})});
+  await new Promise(r=>setImmediate(r));assert.equal(s.calls[1],'/metrics/report');
+  s.resolve({json:async()=>({})},1);await work;
+  assert.equal(s.run('activeFrameResult.original_image_base64'),'T1JJR0lOQUw=');assert.equal(s.nodes.get('saveRawButton').disabled,false);
+  assert.match(s.nodes.get('frameSource').textContent,/WEBCAM/);assert.match(s.nodes.get('captureDefinition').textContent,/trình duyệt/);
+});
+test('webcam Live forwards selected cloud target and uses WAN RTT without forcing Telegram',async()=>{
+  const s=setup();s.run('cameraSource="webcam";cameraBase="";inferenceTarget="cloud";webcam.capture=async()=>({blob:new Blob(["FRAME"],{type:"image/jpeg"}),capture_ms:2});');
+  s.nodes.get('liveButton').onclick();await new Promise(r=>setImmediate(r));
+  const data=s.requests[0].options.body;assert.equal(data.get('inference_target'),'cloud');assert.equal(data.get('send_telegram'),'false');
+  s.resolve({text:async()=>JSON.stringify({request_id:'cloudcam',source:'webcam',inference_location:'cloud',capture_ms:2,cloud_roundtrip_ms:85,detections:[],detection_count:0,annotated_image_base64:'FRAME'})});
+  await new Promise(r=>setImmediate(r));assert.equal(s.run('activeFrameResult.roundtrip_ms'),85);assert.equal(s.run('liveBusy'),false);
+  assert.equal(s.calls[1],'/metrics/report');s.resolve({json:async()=>({})},1);
+});
+test('changing source discards a slow old webcam result and releases tracks',async()=>{
+  const s=setup();s.run('cameraSource="webcam";webcam.capture=async()=>({blob:new Blob(["FRAME"],{type:"image/jpeg"}),capture_ms:2});');
+  s.nodes.get('liveButton').onclick();await new Promise(r=>setImmediate(r));
+  s.nodes.get('cameraSource').value='esp32';s.nodes.get('cameraSource').onchange();
+  s.resolve({text:async()=>JSON.stringify({request_id:'late',source:'webcam',detections:[],detection_count:0,annotated_image_base64:'LATE'})});
+  await new Promise(r=>setImmediate(r));assert.equal(s.run('activeFrameResult'),null);assert.equal(s.nodes.get('frame').hidden,true);
+  assert.equal(s.run('webcam.ready'),false);assert.equal(s.calls.includes('/metrics/report'),false);
+});
+test('webcam permission failure stops Live instead of repeatedly prompting',async()=>{
+  const s=setup();s.run('cameraSource="webcam";webcam.capture=async()=>{const e=new Error("Chưa được cấp quyền camera");e.name="WebcamError";throw e};');
+  s.nodes.get('liveButton').onclick();await new Promise(r=>setImmediate(r));
+  assert.equal(s.run('liveDetection'),false);assert.equal(s.calls.length,0);assert.match(s.nodes.get('webcamStatus').textContent,/quyền camera/);
+});
+test('webcam controls hide ESP32 flash and Xem ảnh releases the webcam without replacing the frame',async()=>{
+  const s=setup();s.run('cameraSource="webcam";setCamera();liveDetection=true;');
+  assert.equal(s.nodes.get('flashButton').hidden,true);assert.equal(s.nodes.get('webcamControls').hidden,false);
+  await s.run('renderResult({request_id:"heldcam",source:"webcam",detections:[],detection_count:0,annotated_image_base64:"HELD"},true)');
+  s.nodes.get('resultButton').onclick();assert.equal(s.run('liveDetection'),false);assert.equal(s.run('webcam.ready'),false);
+  assert.equal(s.nodes.get('frame').src,'data:image/jpeg;base64,HELD');
+});
+
+
+test('server preferences select GCP and webcam without activating camera or exposing credentials',()=>{
+  const s=setup();let starts=0;s.context.countStart=()=>{starts++;return Promise.resolve()};
+  s.run('webcam.start=countStart;configureDashboard({cloud_configured:true,cloud_provider:"Google Cloud Run",default_inference_target:"cloud",default_camera_source:"webcam"});');
+  assert.equal(s.run('inferenceTarget'),'cloud');assert.equal(s.run('cameraSource'),'webcam');
+  assert.equal(s.nodes.get('inferenceTarget').value,'cloud');assert.equal(s.nodes.get('cameraSource').value,'webcam');
+  assert.equal(s.nodes.get('cloudOption').textContent,'Google Cloud Run');
+  assert.equal(s.nodes.get('cloudOption').disabled,false);assert.equal(s.nodes.get('flashButton').hidden,true);
+  assert.match(s.nodes.get('cloudHint').textContent,/Google Cloud Run/);assert.equal(starts,0);
+});
+
+test('provider label comes from backend and still supports a restored Render profile',()=>{
+  const s=setup();s.run('configureDashboard({cloud_configured:true,cloud_provider:"Render",default_inference_target:"cloud",default_camera_source:"webcam"});');
+  assert.equal(s.nodes.get('cloudOption').textContent,'Render');
+  assert.match(s.nodes.get('cloudHint').textContent,/Render/);
+});
+
+test('unconfigured cloud default does not silently fall back to local inference',async()=>{
+  const s=setup();s.run('configureDashboard({cloud_configured:false,cloud_provider:"Google Cloud Run",default_inference_target:"cloud",default_camera_source:"webcam"});webcam.capture=async()=>({blob:new Blob(["FRAME"],{type:"image/jpeg"}),capture_ms:2});');
+  const work=s.nodes.get('captureButton').onclick();await new Promise(r=>setImmediate(r));
+  assert.equal(s.requests[0].options.body.get('inference_target'),'cloud');
+  assert.equal(s.nodes.get('cloudOption').disabled,true);
+  s.reject(Error('HTTP 503: Cloud chưa cấu hình'));await work;
+  assert.equal(s.run('inferenceTarget'),'cloud');assert.equal(s.calls.length,1);
+  assert.match(s.nodes.get('notice').textContent,/Cloud chưa cấu hình/);
+});
+
+test('cloud dashboard stays connected when only the optional local model is unavailable',async()=>{
+  const s=setup();s.run('configureDashboard({cloud_configured:true,cloud_provider:"Google Cloud Run",default_inference_target:"cloud",default_camera_source:"webcam"});');
+  s.context.testJson=async route=>{
+    if(route==='/health')return {model_loaded:false};
+    if(route==='/model/info')return {loaded:false,device:'cpu',checkpoint:'missing.pt'};
+    if(route==='/device/status')return {status:'offline_or_not_seen'};
+    if(route==='/telegram/status')return {state:'disabled',alert_mode:'violations',cooldown_seconds:30};
+    if(route.startsWith('/metrics/history'))return {items:[]};
+    return {};
+  };
+  await s.run('json=testJson;renderHistory=()=>{};renderSummary=()=>{};poll();');
+  assert.equal(s.nodes.get('apiBadge').textContent,'API CONNECTED');
+  assert.match(s.nodes.get('modelDetails').textContent,/Google Cloud Run CPU/);
+  assert.doesNotMatch(s.nodes.get('modelDetails').textContent,/Render/);
 });

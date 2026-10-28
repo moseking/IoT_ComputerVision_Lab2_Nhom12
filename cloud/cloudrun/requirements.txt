@@ -1,0 +1,10 @@
+# Cloud Run CPU only. No Torch, CUDA, Ultralytics, Supabase SDK or Google SDK.
+# Direct versions match the audited API environment; Linux install is tested separately.
+fastapi==0.143.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+opencv-python-headless==4.14.0.94
+numpy==2.5.3
+pillow==12.3.0
+httpx==0.28.1
+onnxruntime==1.31.0

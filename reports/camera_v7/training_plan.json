@@ -1,0 +1,17 @@
+{
+  "objective": "Camera adaptation authorized by user on 2026-10-11; keep V3 rollback",
+  "initialization": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\models\\face_mask_best.pt",
+  "initialization_sha256": "d66dec3404992fe0c227b099ea47069c117e41739ac7e296219a857eeaf95764",
+  "camera_review_sha256": "dfc68be4bd0ef91d2c7a0cbfb8ee56bef5a98610994f9aa1f70ac05bc8438831",
+  "labels": "Original human-verified boxes only; assistant context expansion not used",
+  "selection": "Within candidate run: best public validation fitness, no test selection",
+  "camera_old_26_policy": "training/development; not held-out after opt-in",
+  "deployment": "Separate camera candidate and reversible runtime config; baseline V3 files retained",
+  "epochs": 12,
+  "patience": 5,
+  "lr0": 8e-05,
+  "optimizer": "AdamW",
+  "imgsz": 512,
+  "batch": 8,
+  "seed": 42
+}

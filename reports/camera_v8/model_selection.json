@@ -1,0 +1,12 @@
+{
+  "recorded_at": "2026-10-11T15:27:30.625127+00:00",
+  "default_runtime_checkpoint": "models/camera_v7/face_mask_best.pt",
+  "candidate_checkpoint": "models/camera_v8/face_mask_best.pt",
+  "candidate_sha256": "bfc28f4ad960fd2e9643d68793190e39ee9dda3667fc989ffd8bad178ef5deb4",
+  "v7_runtime_public_validation_mAP50_95": 0.5315245536223178,
+  "v8_runtime_public_validation_mAP50_95": 0.5174440805562142,
+  "decision": "retain V7 default; V8 available for optional camera trial with rollback",
+  "selection_basis": "runtime public validation; test not used; training-example results do not prove generalization",
+  "v3_and_v7_unchanged": true,
+  "camera_independent_evaluation": "pending fresh captures"
+}

@@ -1,0 +1,3053 @@
+{
+  "target": "real_people_only",
+  "authorization": "User explicitly chose only real people on 2026-10-11",
+  "scope": "Derived training labels only; original review manifests, human class/coordinates of real faces, raw images unchanged",
+  "unique_audited_poster_images": 76,
+  "real_background_people_retained_indices": [
+    1000,
+    1002,
+    1004,
+    1005
+  ],
+  "review_sources": {
+    "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1": {
+      "manifest_sha256": "ccb23469eedd7623f5d9b71ee303c80061beda0628c0963eae5533768268dfcb",
+      "rows": [
+        {
+          "id": "30704360877d5342",
+          "index": 745,
+          "processed_sha256": "824afe717e5b9f5712035c94edff44082442fae3061b0661d7a8fabf53858120",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                930.0963592529297,
+                661.3076019287109,
+                1200.0,
+                1100.4066848754883
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                202.63257606392733,
+                666.4262799695192,
+                540.3535361704728,
+                1087.4455834070698
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                22.5147306737697,
+                623.64890645059,
+                72.04714459757916,
+                682.1863344381803
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 745 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "6af95ff25f0c9bb8",
+          "index": 746,
+          "processed_sha256": "15743c8fd514255765f94367ab5d897820ce1ffa2dabcdb2f695d1f5f33966a1",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                927.5469970703125,
+                667.755126953125,
+                1200.0,
+                1109.0807342529297
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                24.331200122833252,
+                623.992805480957,
+                78.78803014755249,
+                693.2993984222412
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                189.12375054269773,
+                666.4262584981138,
+                565.1197485003077,
+                1076.1883402968679
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 746 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "3ee6681d51a6df94",
+          "index": 747,
+          "processed_sha256": "062299441a21f4abb0c08f20fe6c650b3b54fd8fa7cbbbba11a1eab96d3e9d25",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                928.1269073486328,
+                672.6703643798828,
+                1200.0,
+                1107.5856399536133
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                23.805055618286133,
+                626.5822219848633,
+                74.6684741973877,
+                692.5703287124634
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                200.38111587958258,
+                679.9349072875452,
+                540.3535361704728,
+                1085.1941347850293
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 747 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "72e98315e424a01a",
+          "index": 748,
+          "processed_sha256": "fb80424d65353a33b50a40bf29610495031bc2b272e9c5d40d373d1740c77b6e",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                908.7236785888672,
+                660.045166015625,
+                1198.003921508789,
+                1080.274314880371
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                10.74791431427002,
+                619.6382904052734,
+                60.54324150085449,
+                688.491587638855
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                184.6207872305675,
+                673.1805828928295,
+                531.3476524896531,
+                1105.4570435549604
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 748 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "8fa2226befbe8856",
+          "index": 749,
+          "processed_sha256": "a5dfd6298797baabd1c933744e97516b989c7d7d369ae1b9d3c74951d0e14d2e",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                907.1920776367188,
+                669.5816040039062,
+                1194.5120429992676,
+                1091.1566162109375
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                11.645209789276123,
+                627.1814727783203,
+                61.76247835159302,
+                702.8875160217285
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                180.1178453901576,
+                679.9349072875452,
+                517.8388054967031,
+                1091.9484377083397
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 749 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "29508a286cc6d9e9",
+          "index": 750,
+          "processed_sha256": "8e474db6d1a1e8087dad395c090c12f72f420a28c3967cc1ce710d0ef2fc56e6",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                886.8067932128906,
+                672.2015380859375,
+                1193.0638122558594,
+                1098.7493896484375
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                9.221065044403076,
+                622.3609161376953,
+                59.08221483230591,
+                693.7070512771606
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                191.3752107270425,
+                673.1805828928295,
+                511.0844034719486,
+                1064.931140129477
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 750 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "9be2741920ded7a1",
+          "index": 751,
+          "processed_sha256": "47f8c9c54be9f39cc02951d25117c48df48e43c6a64596dd421e545bd594efe4",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                875.5820465087891,
+                676.6691589355469,
+                1189.498691558838,
+                1086.195411682129
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                7.026882171630859,
+                627.3807525634766,
+                58.48800182342529,
+                702.5994253158569
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                191.3752107270425,
+                679.9349072875452,
+                513.3358851280137,
+                1082.9426646915836
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 751 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "9316efa02faf2ae9",
+          "index": 752,
+          "processed_sha256": "243b59f7d4253ba7b773b4db2264dea658504c8dab1a2c13186d419c0478a1b5",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                850.1062774658203,
+                674.2405700683594,
+                1182.022819519043,
+                1066.685562133789
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                15.162153244018555,
+                616.7541122436523,
+                63.83068561553955,
+                683.5782480239868
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                193.6266923831076,
+                686.689231682261,
+                504.3299585037532,
+                1058.1768586775718
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 752 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "06b107cd3422cc26",
+          "index": 766,
+          "processed_sha256": "94c01146121b8b4ee9c6e95dcd0686e13d6071c3a127a9cc9914572f01bf24c0",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                271.3197898864746,
+                683.9800262451172,
+                419.7710609436035,
+                881.5571975708008
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                711.2497711181641,
+                496.81312561035156,
+                1016.7161178588867,
+                882.1404266357422
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                28.93425464630127,
+                487.24365234375,
+                140.1034116744995,
+                611.5318202972412
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 766 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "359bcdb8b701e3b6",
+          "index": 767,
+          "processed_sha256": "a54eb0c67895856deb7f804e1e1bc61e618468f556e964c53eb3b8e18234dcea",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                677.5140380859375,
+                505.55580139160156,
+                968.6962509155273,
+                890.5751800537109
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                321.7645263671875,
+                693.6142730712891,
+                478.01249504089355,
+                897.0781707763672
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                23.45236301422119,
+                493.57784271240234,
+                135.58791637420654,
+                625.5353355407715
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 767 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "cc3b141c1a2d36c9",
+          "index": 768,
+          "processed_sha256": "2479540e746a7217a2a938568caff049df56f8f191c284364d35aa0b94745e34",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                677.6831817626953,
+                507.2404479980469,
+                966.5222930908203,
+                885.9559631347656
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                320.64502716064453,
+                695.1686859130859,
+                474.1321277618408,
+                893.5437774658203
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                20.199966430664062,
+                499.22008514404297,
+                128.05360794067383,
+                622.736349105835
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 768 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "631808944edb3e67",
+          "index": 769,
+          "processed_sha256": "94f294acba6aa1f9b3c56979943364150cb083df36402bf6b29eef46545361ef",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                674.0184783935547,
+                499.677734375,
+                966.4301872253418,
+                880.8222961425781
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                311.98638916015625,
+                681.6171264648438,
+                468.75563621520996,
+                883.7178802490234
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                22.567038536071777,
+                494.25758361816406,
+                125.72309017181396,
+                615.2369689941406
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 769 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "25d1e85ddd5ab6d7",
+          "index": 771,
+          "processed_sha256": "63ce3b67971864ee67a304b10ce4036dbc45d5f342f3a2e54eda9c27d8ae112c",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                253.2157325744629,
+                687.747802734375,
+                412.69062995910645,
+                902.4487113952637
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                642.2129058837891,
+                507.230224609375,
+                923.6384963989258,
+                873.3671951293945
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                2.799406051635742,
+                507.70458221435547,
+                113.86574745178223,
+                647.6072788238525
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 771 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "d9dd51fd0a99c38a",
+          "index": 772,
+          "processed_sha256": "22adc55233d5073a9f70838d8275816ee06d9857174758dbd7bd16b673bd6f26",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                224.62064743041992,
+                683.9061737060547,
+                380.43782234191895,
+                892.1559906005859
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                635.1043701171875,
+                510.84999084472656,
+                918.433723449707,
+                866.3602447509766
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                0.0,
+                495.8607482910156,
+                100.78990459442139,
+                637.4282455444336
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 772 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "58e96ff0ee170adf",
+          "index": 773,
+          "processed_sha256": "e39e8850227328fbdeaa0b32cfafb1b5a2005ce9573af637a2b7326c7d438b92",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                194.60378646850586,
+                690.7484436035156,
+                355.7856559753418,
+                904.3681144714355
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                649.2218017578125,
+                536.9458389282227,
+                930.6802749633789,
+                876.8243026733398
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                4.647212028503418,
+                511.33644104003906,
+                113.69898319244385,
+                652.2715759277344
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 773 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "4027fc740d83c589",
+          "index": 774,
+          "processed_sha256": "5be6fa6efb4e20ff674520e795d73eae6764f0def76b3bf878110a258cca6aaf",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                178.19229125976562,
+                699.0102386474609,
+                339.05033111572266,
+                913.9390182495117
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                649.283447265625,
+                552.4303817749023,
+                916.9719314575195,
+                861.7267227172852
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                0.31714439392089844,
+                515.4872894287109,
+                98.416748046875,
+                662.0325469970703
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_01.jpg index 774 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "c2a9c82bd7eedf12",
+          "index": 787,
+          "processed_sha256": "a726e54886a965fadcb85473d61e66b2a4b155032691b79160ba993aef5ce5d0",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                310.19580841064453,
+                795.1985168457031,
+                456.2446975708008,
+                988.3473587036133
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                691.5812683105469,
+                628.2878875732422,
+                973.1520652770996,
+                1028.659439086914
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                94.19400215148926,
+                615.4106903076172,
+                196.14426612854004,
+                741.5757179260254
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 787 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "fd60b2655c6d4cb2",
+          "index": 788,
+          "processed_sha256": "6b049a972d1cc748d0664c2082a4a5430537fb41880bf020c6c9132465b38244",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                299.3389892578125,
+                767.5253295898438,
+                432.78520584106445,
+                936.6396903991699
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                692.4509429931641,
+                630.472297668457,
+                966.8023490905762,
+                994.0884017944336
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                11.357755661010742,
+                634.592170715332,
+                56.78011894226074,
+                695.6801795959473
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                122.4322509765625,
+                577.9195404052734,
+                210.55023193359375,
+                680.4440879821777
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2,
+            3
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 788 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "c89cb68dfaeedbec",
+          "index": 790,
+          "processed_sha256": "72262941138e0cfa7bb7f50d4ad71ed65a5a7f0a315b0f39145adde673b22900",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                287.6289939880371,
+                752.0363616943359,
+                438.8594341278076,
+                950.9822463989258
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                699.5030975341797,
+                609.1580963134766,
+                987.5636672973633,
+                1010.3326034545898
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                3.559086322784424,
+                627.8289413452148,
+                45.132954120635986,
+                684.7273349761963
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                109.68978881835938,
+                571.1341857910156,
+                195.93924522399902,
+                675.5538558959961
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2,
+            3
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 790 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "82e25c016cfec621",
+          "index": 791,
+          "processed_sha256": "be7daca32712cef3862fb7186f64ac1c31089f85294c9c5528ab564ad93d8669",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                306.98925018310547,
+                738.4091186523438,
+                455.8496284484863,
+                937.0896148681641
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                709.107666015625,
+                601.6010284423828,
+                995.7297897338867,
+                996.7848968505859
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                118.64286422729492,
+                562.2981262207031,
+                199.703950881958,
+                659.7596549987793
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                3.8486075401306152,
+                616.4339447021484,
+                43.634488582611084,
+                673.2796764373779
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2,
+            3
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 791 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "52b00455f5059c0c",
+          "index": 792,
+          "processed_sha256": "105358ec225ade9f4229e758091f887a87f69c6c5e91da00a11ae648ede7c71c",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                298.7970733642578,
+                720.1712799072266,
+                452.8686332702637,
+                920.4498100280762
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                697.5273132324219,
+                589.0200042724609,
+                983.3942222595215,
+                973.8682174682617
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                85.52644729614258,
+                534.6617126464844,
+                188.03492546081543,
+                657.2733306884766
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 792 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "b8890fb5cdcb2cb4",
+          "index": 793,
+          "processed_sha256": "cdc1093b5ec821c26de2d68e25b34415a48440994796ab5ea2ad2679d9c3fd39",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                300.52141189575195,
+                727.5279235839844,
+                449.8953056335449,
+                929.8217391967773
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                694.2477416992188,
+                589.427490234375,
+                980.910701751709,
+                972.9447555541992
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                79.61847305297852,
+                533.6642837524414,
+                183.59724044799805,
+                661.8807125091553
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 793 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "d0fb54c5f0a165fa",
+          "index": 794,
+          "processed_sha256": "a1bd5d1190a67cee740b72e0d0d407b6bbc67189cafce90e7dcee47812bcec2b",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                299.7989845275879,
+                720.33447265625,
+                451.715612411499,
+                921.5666961669922
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                684.9907684326172,
+                580.9445953369141,
+                964.6952056884766,
+                946.1316299438477
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                66.20806694030762,
+                529.7103881835938,
+                177.95123100280762,
+                663.4872817993164
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 794 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "22197bcac18d355e",
+          "index": 795,
+          "processed_sha256": "c17e6a55aed66f1c85e72fae5601c07cf324f2ff454069aa564b3efb3822e3ce",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                295.5245018005371,
+                714.8741149902344,
+                446.70573234558105,
+                912.9681015014648
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                681.5055847167969,
+                567.9356384277344,
+                962.4034881591797,
+                920.7682418823242
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                48.88408184051514,
+                522.1419143676758,
+                158.84167194366455,
+                654.978609085083
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 795 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "254ce01ee40cf504",
+          "index": 796,
+          "processed_sha256": "7beca01f1bff4333276cb1a5161d8864656ba8da0cba822f49b7f54292d5f834",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                293.5531425476074,
+                715.2330017089844,
+                449.4130802154541,
+                918.1858062744141
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                680.1979064941406,
+                559.0080261230469,
+                956.4247512817383,
+                924.013671875
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                42.54750728607178,
+                515.1225280761719,
+                164.1199541091919,
+                665.3281307220459
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 796 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "3c8129dbab247fc8",
+          "index": 797,
+          "processed_sha256": "6434d0fdb699f012b2f071f7c1e6eb15a44b34112d99f98d03fdd6ca69fd8ffd",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                297.7467346191406,
+                714.7886657714844,
+                448.9731693267822,
+                913.6126327514648
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                680.1020812988281,
+                551.1642456054688,
+                960.3697967529297,
+                931.6891479492188
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                46.4621639251709,
+                512.094841003418,
+                161.50105476379395,
+                654.839391708374
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 797 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "0240077bb349bc4b",
+          "index": 798,
+          "processed_sha256": "969ca5bb78b3efe080156119a8a168e4ac6a06933d57b754fa727fdb9841bda7",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                292.744197845459,
+                722.9389953613281,
+                447.39343643188477,
+                933.006763458252
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                694.43115234375,
+                580.6691741943359,
+                959.958553314209,
+                931.5603256225586
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                68.83747100830078,
+                539.2972183227539,
+                180.57079315185547,
+                669.9326705932617
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 798 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "220eae1771f34406",
+          "index": 799,
+          "processed_sha256": "fa73bfa8213d7b84c34d76abafe687fe2dec3a128d16e5529c1dafd295cf0429",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                290.64666748046875,
+                736.7885589599609,
+                446.56633377075195,
+                935.7835960388184
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                689.2359924316406,
+                586.8918609619141,
+                960.9967613220215,
+                951.3782119750977
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                74.0640926361084,
+                549.1811370849609,
+                181.9391918182373,
+                675.4837512969971
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 799 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "1325b4746740d519",
+          "index": 800,
+          "processed_sha256": "aab7ddcc47a442821e3a1ca2c62a3ddd669026d8bb5e0b00e7d223076c16a4bb",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                283.3739471435547,
+                732.5639343261719,
+                438.8323402404785,
+                936.8249320983887
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                692.8825378417969,
+                573.6764526367188,
+                954.8949241638184,
+                918.7165451049805
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                72.36725807189941,
+                549.4396209716797,
+                176.2305736541748,
+                673.2332801818848
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 800 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "7939ca0b9eb7eff8",
+          "index": 802,
+          "processed_sha256": "4707c0f6a8a453b53f60f5b6ff3e5b15e533156568410db43ffd7bf981ac664d",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                277.4041175842285,
+                734.2554473876953,
+                432.2353935241699,
+                935.8277320861816
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                680.2494049072266,
+                570.8779907226562,
+                952.474193572998,
+                928.8613891601562
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                65.17738342285156,
+                555.7772827148438,
+                168.99023056030273,
+                670.0223922729492
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 802 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "9f085622ba2e597c",
+          "index": 810,
+          "processed_sha256": "144bcc300471c53a7fd8bb82178983e5bc721c209c18a72f6e5756a19b787402",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                666.5919494628906,
+                567.2381591796875,
+                937.7566528320312,
+                926.6644287109375
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                185.91659545898438,
+                750.8682250976562,
+                322.3265075683594,
+                930.5847358703613
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                30.323176383972168,
+                564.1640090942383,
+                134.44550037384033,
+                696.0073947906494
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 810 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "9bce84079544fdf1",
+          "index": 824,
+          "processed_sha256": "d4b08f4e5e00737cf759148cc2c8dd33c43bc60017c6005fa6f532dc1b483de4",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                876.1980438232422,
+                654.0863037109375,
+                1045.8564949035645,
+                936.9461631774902
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                84.03942108154297,
+                549.0853881835938,
+                184.325532913208,
+                663.7470245361328
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                281.93838119506836,
+                738.8036346435547,
+                428.5214328765869,
+                920.7949447631836
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_02.jpg index 824 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "a89e7b43587fc974",
+          "index": 826,
+          "processed_sha256": "23307b0d7954528c0590ea4a7ab42929f46940102a26dc1b1a23261cd60059a6",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                708.9019012451172,
+                575.2927780151367,
+                998.2963180541992,
+                952.5508499145508
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                288.09478759765625,
+                726.2671661376953,
+                436.9606685638428,
+                912.0993423461914
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                59.61342811584473,
+                547.6213836669922,
+                168.2371425628662,
+                673.8543891906738
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 826 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "1bc963fea6a9319d",
+          "index": 828,
+          "processed_sha256": "c315952c8953686f73efaa0823c2b5dbb4b6814c5cfddd13d3c2b0b03cf1fc04",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                107.77332305908203,
+                542.5214004516602,
+                194.5778751373291,
+                647.6388359069824
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                628.1609772094865,
+                574.1172085369449,
+                934.3613229614426,
+                945.6048355322557
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                299.4459222554811,
+                709.2036320170431,
+                486.31819114211373,
+                925.3418408767033
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 828 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "bc32428ad6f11fc2",
+          "index": 829,
+          "processed_sha256": "529ce9531498ca7ff45a77bac5bbbf428db2a3d7dc7310f8717bdaad87006a7c",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                90.56535720825195,
+                525.4911804199219,
+                198.94615173339844,
+                647.1506118774414
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                619.1550935286668,
+                567.3628841422292,
+                956.876311295857,
+                943.3533869102154
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                288.18855691859625,
+                700.1978375288817,
+                495.3240748229335,
+                920.8389865754332
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 829 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "7415d689733b5adc",
+          "index": 840,
+          "processed_sha256": "42725cccae57aab680554c4aae8ac291f0d4d08bd3dc58813d862f0e7b10958e",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                85.02199172973633,
+                475.3724670410156,
+                200.03667831420898,
+                602.1409225463867
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                288.18855691859625,
+                679.93488581614,
+                504.3299585037532,
+                920.8389865754332
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                670.9389569009609,
+                562.8600083695538,
+                1046.9352339909358,
+                952.3592243411875
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 840 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "9927fa6d92ab49c5",
+          "index": 841,
+          "processed_sha256": "2b072e2e38b9d5cc24d500c896be2c46d01dbf4440ea62096a1d0bd612ba09bc",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                86.61196708679199,
+                480.0147247314453,
+                198.78008842468262,
+                601.1553955078125
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                290.4400385746614,
+                686.689231682261,
+                497.5755564789986,
+                909.5817864080421
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                677.693444812597,
+                580.8715329316606,
+                1040.1805743055365,
+                956.8620356996469
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 841 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "e063ce79b02d3761",
+          "index": 842,
+          "processed_sha256": "a21221c79d68d591c62045990798cf55e31393a172cb14f38db6c92129f399d4",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                287.87109375,
+                693.892822265625,
+                409.20392990112305,
+                859.4807052612305
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                84.42743301391602,
+                469.0345001220703,
+                203.25051307678223,
+                600.1629638671875
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                720.4713815606304,
+                610.1402576611584,
+                1053.6893783550458,
+                1017.6508908378722
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 842 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "8e4696e4b014d069",
+          "index": 844,
+          "processed_sha256": "439dde91650c884fd289fbc00cb7a501fc403466ec918e771b4f06d352143ee2",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                286.40764236450195,
+                692.1409606933594,
+                401.687068939209,
+                859.3191909790039
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                95.53396224975586,
+                476.3773727416992,
+                195.93597412109375,
+                589.2117691040039
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                828.5420716173487,
+                623.6488849791846,
+                1078.4556336283213,
+                1010.8965879145618
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 844 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "91f57be6dd10c374",
+          "index": 846,
+          "processed_sha256": "cce494c570cccff6beef884e3a71550090561b48e7015526a53fa02bd8de9997",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                20.43938159942627,
+                582.5985717773438,
+                59.135563373565674,
+                631.2312364578247
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                848.805363578494,
+                623.6488849791846,
+                1069.4499646647055,
+                947.8562412114854
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                285.93707526253115,
+                695.6949832276117,
+                441.28872979457435,
+                927.5932894987436
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 846 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "e0af2af89ae585a2",
+          "index": 847,
+          "processed_sha256": "375cf7998b2d8d42a2f557438030bbd35880496a01cd1f6677d630454c82126e",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                9.02674674987793,
+                585.1534271240234,
+                55.73132514953613,
+                647.0342254638672
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                121.74890518188477,
+                524.1238021850586,
+                217.08643913269043,
+                633.3494186401367
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                306.2003457519561,
+                695.6949832276117,
+                459.3004971562138,
+                887.06738607326
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                790.2670981814455,
+                610.1402576611584,
+                1060.4438662666819,
+                956.8620356996469
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0,
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 847 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "920e162ff382da4a",
+          "index": 848,
+          "processed_sha256": "4a2c95f35bb684dc1b69efcfedff9c2e3abf2a515f9c0f126e5768a7019b834a",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                30.917978286743164,
+                484.8719787597656,
+                151.7187213897705,
+                620.5681991577148
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                256.66794256400686,
+                684.4377830602207,
+                445.7916931067046,
+                896.0732235042321
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                594.388881198832,
+                488.56248297049166,
+                920.8525189119334,
+                851.0444228346678
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 848 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "131017d13a1c9c75",
+          "index": 861,
+          "processed_sha256": "71d0a8d2c45eeb4df8532ed5e4503ac5239b8ba8a6c8087d3160f8fee99f9f7a",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                27.90782928466797,
+                465.72227478027344,
+                152.85158157348633,
+                609.2128658294678
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                256.66794256400686,
+                648.414733936007,
+                468.3064237804743,
+                871.3072886617882
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                562.8682668442426,
+                434.52792001987393,
+                920.8525189119334,
+                862.3016230020589
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            0
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 861 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "8601849241025185",
+          "index": 878,
+          "processed_sha256": "b64d5f8bce2127dcc6e51770b8ff0921f81c1ff1cc7bd923e903c2cce8f3bff8",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                347.10437774658203,
+                705.8705902099609,
+                491.00422859191895,
+                893.4419631958008
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                116.57634735107422,
+                531.4814758300781,
+                221.42742156982422,
+                650.810432434082
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                9.627492427825928,
+                595.1039123535156,
+                54.27135705947876,
+                656.679196357727
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                731.7287468975153,
+                621.3974792999549,
+                1053.6893783550458,
+                965.8678301878082
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1,
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 878 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "10d3f1901f67dd26",
+          "index": 889,
+          "processed_sha256": "2190564203d7965c9b2745e221a337d8eeee0a16c3b10d6a6b3c79f8894382cf",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                628.3606338500977,
+                561.1834335327148,
+                912.2004127502441,
+                939.1044998168945
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                346.6440200805664,
+                672.2074890136719,
+                483.9516830444336,
+                851.9623565673828
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                101.24305725097656,
+                484.1413879394531,
+                193.90870094299316,
+                589.5261096954346
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 889 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "5e77e7058fa1b28b",
+          "index": 890,
+          "processed_sha256": "1da525538211b89e4b0a4e2a0ed221c5d5a1a0b1570976d8b046d28db103a444",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                646.3348388671875,
+                547.8624725341797,
+                926.9190979003906,
+                929.3622970581055
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                364.6872329711914,
+                659.7286987304688,
+                502.0298194885254,
+                843.944091796875
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                113.97260665893555,
+                462.3261260986328,
+                231.69602394104004,
+                584.2067432403564
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 890 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "d4404ecdecbdf24e",
+          "index": 891,
+          "processed_sha256": "4f391ef03097c077f968b9ee786e1180c8f674ac48bc164e93bd443b0756b96b",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                730.1026916503906,
+                508.86547088623047,
+                1021.4942169189453,
+                915.3943252563477
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                443.519287109375,
+                638.7692260742188,
+                576.4084434509277,
+                816.1108016967773
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                114.2188835144043,
+                514.3819046020508,
+                155.68996906280518,
+                565.8207654953003
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 891 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "ee61e83d2dec8b6d",
+          "index": 894,
+          "processed_sha256": "2dcc673c85fa40560c3780c74d702ff5f364744f1246538d15a15c68ca3e649f",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                742.0316314697266,
+                567.6673126220703,
+                1027.3431015014648,
+                944.9839019775391
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                453.2245635986328,
+                693.0702209472656,
+                585.2670669555664,
+                864.2915344238281
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                131.81876182556152,
+                572.8048324584961,
+                169.96965169906616,
+                620.7301378250122
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_03.jpg index 894 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "1acec80eb1109258",
+          "index": 895,
+          "processed_sha256": "e278a95d2891b69207213652b7ace542c7d58dfb131ae2b0489d1abedf1197c3",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                726.1177062988281,
+                534.466438293457,
+                1012.3106956481934,
+                927.0562362670898
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                440.6452178955078,
+                675.9751129150391,
+                577.1282958984375,
+                863.610897064209
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                117.35383033752441,
+                573.10791015625,
+                157.8386640548706,
+                625.4645395278931
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 895 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "e5b572571bbb60cd",
+          "index": 896,
+          "processed_sha256": "6d85eb296829d139188363068f7bd8c5c92f1c2ac71eb70cdc1c20d881df5664",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                760.9095001220703,
+                573.8967895507812,
+                1040.7356643676758,
+                949.324951171875
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                467.3133850097656,
+                702.6722717285156,
+                603.225212097168,
+                886.7727088928223
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                158.71992111206055,
+                593.1048965454102,
+                197.0498776435852,
+                642.7512073516846
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 896 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "967902b5c1e2af4e",
+          "index": 902,
+          "processed_sha256": "9a23981c7dfec24b353675101c70c315658961705c7f63aef9bb1cd2c61fe68c",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                862.1035766601562,
+                549.747200012207,
+                1145.2217292785645,
+                926.0815048217773
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                481.20349884033203,
+                679.4959259033203,
+                624.6642780303955,
+                861.6501998901367
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                147.82687187194824,
+                558.983039855957,
+                189.08749103546143,
+                611.8403720855713
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 902 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "c37e170aac36c727",
+          "index": 903,
+          "processed_sha256": "7033e55970f6c1f46c59b555e2553e43a9a61917559f045e1c8f003eb82d17cf",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                483.85765075683594,
+                684.7747802734375,
+                628.2851886749268,
+                857.9574394226074
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                897.3257446289062,
+                569.7077941894531,
+                1138.0315208435059,
+                901.041259765625
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                137.49897003173828,
+                558.5564804077148,
+                178.3427906036377,
+                610.0597333908081
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 903 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "4383b811aa47596d",
+          "index": 904,
+          "processed_sha256": "68c310fe0b3359917b0a1f83b7562516451be859943c9e993f93ec6a540a858f",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                484.61021423339844,
+                676.9290161132812,
+                618.0794048309326,
+                846.3153839111328
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                121.13633155822754,
+                554.2057800292969,
+                160.28879642486572,
+                604.0806293487549
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                938.6940002441406,
+                582.0358276367188,
+                1105.573558807373,
+                872.8726577758789
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 904 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "562b92139728215d",
+          "index": 909,
+          "processed_sha256": "3897c42cefa01765523ff269ecf71059255e63e7a513a4ef2347b4758a95671e",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                698.1645202636719,
+                626.4776611328125,
+                977.5910186767578,
+                1002.9967880249023
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                329.5072937011719,
+                773.8538360595703,
+                458.58015060424805,
+                939.1238975524902
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                20.23444890975952,
+                640.6930541992188,
+                63.0953049659729,
+                694.6489667892456
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 909 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "f1f0ff39414cce27",
+          "index": 910,
+          "processed_sha256": "d02aebda42b5d6d0e49b5d6b87205927f3250a16a3a32b2a48177046cea6af40",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                694.5652770996094,
+                630.1345825195312,
+                971.5975952148438,
+                993.5670471191406
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                326.17942810058594,
+                767.7234649658203,
+                456.9084930419922,
+                939.1219139099121
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                7.8145527839660645,
+                639.217529296875,
+                56.17234945297241,
+                704.7241449356079
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 910 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "a4ec8399c4cb264a",
+          "index": 919,
+          "processed_sha256": "bc59c3203ff1771e9d8bd3392ca58e38b30a69daa3b28b06bd3332b0bf8d6fc0",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                700.5406951904297,
+                625.7150268554688,
+                923.9695167541504,
+                860.5496597290039
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                1.3468456268310547,
+                621.2033843994141,
+                36.93584680557251,
+                669.6526336669922
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                288.18855691859625,
+                756.4838383658371,
+                477.312307461294,
+                961.3648900009168
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 919 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "8335cf4d5d7e6aa8",
+          "index": 927,
+          "processed_sha256": "f739bdda66799555ec96ed5fd6873d5800a381fa77158a95ef12e071cd702d11",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                669.3899536132812,
+                588.5573577880859,
+                949.8732757568359,
+                990.0281143188477
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                313.30615997314453,
+                715.4093933105469,
+                434.63900566101074,
+                872.0324516296387
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                40.15822410583496,
+                535.6447982788086,
+                156.7307949066162,
+                664.4258689880371
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 927 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "c8b2fc5cd4d1098b",
+          "index": 928,
+          "processed_sha256": "6e1f9d5148a73262825c7b71283aa2d42524af31b5f61d476c329cf9bb55e4b8",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                702.1821594238281,
+                598.2472991943359,
+                987.7524375915527,
+                989.7222137451172
+              ]
+            },
+            {
+              "class_id": 0,
+              "bbox": [
+                365.3110885620117,
+                752.4858093261719,
+                506.10743522644043,
+                934.6599388122559
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                37.79988765716553,
+                632.5762939453125,
+                78.92958164215088,
+                685.6697130203247
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 928 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "17dec1166a358ac4",
+          "index": 938,
+          "processed_sha256": "f7fcb50725187769703784064a29a9ef340aab1435847bb295e16f5cb4cdb5de",
+          "original_boxes": [
+            {
+              "class_id": 0,
+              "bbox": [
+                406.2181091308594,
+                763.0390930175781,
+                552.1689224243164,
+                938.5435104370117
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                41.34396553039551,
+                617.6684188842773,
+                87.80518531799316,
+                676.0518550872803
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                839.7994369542336,
+                610.1402576611584,
+                1042.432013018161,
+                972.6221116397132
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 938 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "6e32f914ca6bb8f4",
+          "index": 949,
+          "processed_sha256": "a0c0ad45bc7f38db661acc72810436833701e822e617c7bd9ad27cf302a627b8",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                616.0586547851562,
+                628.3364105224609,
+                890.7028198242188,
+                999.094352722168
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                313.2851791381836,
+                745.4104614257812,
+                450.6377696990967,
+                926.3045501708984
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                65.24316787719727,
+                531.1566543579102,
+                166.2752342224121,
+                654.0551662445068
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 949 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "e2ec461379d5bb69",
+          "index": 950,
+          "processed_sha256": "c18cb7c8f38f4d35cb0b7824ab81740f3eb716a3dc39c81b32cf3dbfa9eb9949",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                610.3212738037109,
+                617.6877593994141,
+                892.6791763305664,
+                995.6908416748047
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                309.9258232116699,
+                736.0111999511719,
+                450.13391494750977,
+                928.8062858581543
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                57.39475727081299,
+                528.9439392089844,
+                167.63829708099365,
+                652.8517532348633
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 950 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "f540454e3492b93b",
+          "index": 951,
+          "processed_sha256": "2f0091ba628446f302c15c2550c64a5b50f5283681fa1a207e782caca2110f6f",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                613.0063629150391,
+                570.2728271484375,
+                887.4799156188965,
+                952.5949478149414
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                321.8372344970703,
+                719.1847991943359,
+                459.9184799194336,
+                904.571647644043
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                51.295151710510254,
+                518.5733795166016,
+                178.4926176071167,
+                652.8295421600342
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 951 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "8b78b9207abc6c53",
+          "index": 955,
+          "processed_sha256": "9cfac6a8be5a409e6fd8d7ad815a2ff5fc202e13180ce3ef825e0a35e1f2d77d",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                631.7707443237305,
+                584.3156433105469,
+                909.6115303039551,
+                971.120719909668
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                326.6192626953125,
+                732.7443695068359,
+                462.3641872406006,
+                914.0178680419922
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                108.59075546264648,
+                545.7013320922852,
+                188.0356788635254,
+                644.9799919128418
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                0.0,
+                608.2706832885742,
+                35.264326333999634,
+                666.2521553039551
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2,
+            3
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 955 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "747a13c24c448538",
+          "index": 957,
+          "processed_sha256": "efa686d540b3f4b47d228cd69ecaa88898ce29813302ceb45a7b60c6d9b98fce",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                641.2015533447266,
+                586.6724395751953,
+                920.2372550964355,
+                964.3941116333008
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                321.90128326416016,
+                732.4678039550781,
+                448.236026763916,
+                904.3277931213379
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                3.333289623260498,
+                599.1091537475586,
+                44.461658000946045,
+                657.1551942825317
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                110.18872261047363,
+                539.3969345092773,
+                196.5073299407959,
+                639.5730209350586
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2,
+            3
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_04.jpg index 957 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "46a3a20e6f2cfc9e",
+          "index": 958,
+          "processed_sha256": "01e9d5793b2a67e3bb4aa8da4a4bc3cca3dae1053748adbe0d7e007ffe0b2ec1",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                640.6547546386719,
+                585.617790222168,
+                916.3902854919434,
+                958.217658996582
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                317.9326629638672,
+                728.7523651123047,
+                437.2487735748291,
+                900.289363861084
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                103.91509056091309,
+                532.9890441894531,
+                203.45396995544434,
+                640.7065582275391
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 958 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "d6e0b04c051194f2",
+          "index": 963,
+          "processed_sha256": "f3eeacf1e22e70e6d70bb39ee2231493ff183602368f7feaa138c665cf186644",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                297.6502990722656,
+                699.7830200195312,
+                418.13440322875977,
+                870.8000183105469
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                1.6972684860229492,
+                549.011116027832,
+                44.67597484588623,
+                611.0275363922119
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                806.027340943579,
+                607.8888090391181,
+                1015.4144049191425,
+                968.1192143956325
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 963 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "1a36b345b37351aa",
+          "index": 967,
+          "processed_sha256": "2b29e656ee1e4ca1daf9bd5049c96f5276cd65ec1d9594648e5856e100174261",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                320.5770492553711,
+                729.1232299804688,
+                458.8731575012207,
+                912.103443145752
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                673.9801025390625,
+                588.3048248291016,
+                958.230037689209,
+                952.2212600708008
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                65.78346252441406,
+                527.88330078125,
+                183.98853302001953,
+                654.8740196228027
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 967 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "1aed036b1a02da89",
+          "index": 970,
+          "processed_sha256": "135dc5bc533f081c3b709276c1a94278304f2888e57ffe8a2bace8ea201d5171",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                610.2012252807617,
+                593.742790222168,
+                882.9638862609863,
+                975.4343032836914
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                335.72940826416016,
+                727.6605224609375,
+                473.7881660461426,
+                912.3097801208496
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                44.49772834777832,
+                531.1994552612305,
+                157.99006462097168,
+                660.3502750396729
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 970 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "597c374bb8375945",
+          "index": 978,
+          "processed_sha256": "b1d0f5960c26cc5979a70294f4cfd4825c2c82e64089ebcb67d93470267c0f43",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                657.8863525390625,
+                685.2459716796875,
+                939.1890907287598,
+                1069.6100234985352
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                293.7499237060547,
+                801.9115447998047,
+                433.6366271972656,
+                983.6368942260742
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                39.43760395050049,
+                622.4721527099609,
+                153.73338222503662,
+                748.5892391204834
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 978 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "b7e61beb40fcafc8",
+          "index": 981,
+          "processed_sha256": "292fc5b940ec44113b60cd0373196e4622b721d933e3b8cfc17563db5923eaef",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                657.8495788574219,
+                657.4798583984375,
+                923.0567169189453,
+                1040.5437469482422
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                40.40397644042969,
+                625.9689331054688,
+                147.2797393798828,
+                747.2256088256836
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                294.94298041507125,
+                778.9982601720246,
+                430.03136445768945,
+                995.1365119744954
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 981 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "863c61999224b28f",
+          "index": 982,
+          "processed_sha256": "80dcde60459385f8db4936555939a8506460eefc81109168539e98e37cdf0229",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                652.4919128417969,
+                650.9992980957031,
+                921.3353729248047,
+                1020.0259017944336
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                46.359124183654785,
+                609.3181610107422,
+                149.47301387786865,
+                727.0858287811279
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                297.194440599416,
+                776.7468115499843,
+                445.7916931067046,
+                974.8735602617536
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            1
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 982 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "b4b6c79ec0bfc0cb",
+          "index": 983,
+          "processed_sha256": "5e89cc0d1bb248febe17d5caefca29b6afacc795938bf0417dd68db5e028d753",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                651.7677307128906,
+                630.6883239746094,
+                925.6927490234375,
+                992.0512390136719
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                310.5323600769043,
+                777.4186706542969,
+                440.51026344299316,
+                928.5753917694092
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                47.778687477111816,
+                606.923828125,
+                161.77388668060303,
+                730.1403999328613
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 983 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "5a6f2fc640738ff2",
+          "index": 984,
+          "processed_sha256": "1ff9cb4efedd5cc8756d7bf9293bf37523202351458604b74f5e919b6bb03478",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                649.5212554931641,
+                633.7579727172852,
+                919.500904083252,
+                993.7405014038086
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                302.2462463378906,
+                783.9079284667969,
+                440.2665138244629,
+                945.5728340148926
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                45.25926113128662,
+                604.9165725708008,
+                154.5629358291626,
+                723.9594841003418
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 984 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "6bc1d0177af0b9ea",
+          "index": 985,
+          "processed_sha256": "636f4780d94c04428df6ef17eb97d92bfe0d1593ade2f8d972d62041975991ea",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                572.6373291015625,
+                648.4032440185547,
+                839.2644882202148,
+                990.2404022216797
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                286.44229888916016,
+                786.6883087158203,
+                426.52631759643555,
+                972.0275688171387
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                41.33533000946045,
+                602.0416641235352,
+                154.40136432647705,
+                730.1503849029541
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 985 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "4117a17663d15799",
+          "index": 986,
+          "processed_sha256": "e1d6feed2126f2ae298d09320fe6b7e037a82d43a06477173c8428d14bb38051",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                291.19136810302734,
+                771.1534881591797,
+                437.6299476623535,
+                956.8670082092285
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                565.1565551757812,
+                616.3075256347656,
+                837.3518180847168,
+                950.4819107055664
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                36.46789073944092,
+                577.5751113891602,
+                155.3587007522583,
+                711.4580821990967
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 986 (full frame and crops visually inspected)"
+        },
+        {
+          "id": "82efac236e1314ac",
+          "index": 990,
+          "processed_sha256": "a77a4f351b106f2d2fa543e9536cf73ff6b93082f7fa9057aa6f6bab6d78b9a9",
+          "original_boxes": [
+            {
+              "class_id": 1,
+              "bbox": [
+                586.0126495361328,
+                636.3413619995117,
+                859.8384666442871,
+                994.6713638305664
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                272.4731254577637,
+                803.1191253662109,
+                397.3776340484619,
+                984.1611671447754
+              ]
+            },
+            {
+              "class_id": 1,
+              "bbox": [
+                50.848116874694824,
+                609.0184020996094,
+                172.39784717559814,
+                747.6634311676025
+              ]
+            }
+          ],
+          "removed_box_indices": [
+            2
+          ],
+          "reason": "printed_face_not_real_person",
+          "visual_evidence": "reports/baseline_v4/private/extra_faces_05.jpg index 990 (full frame and crops visually inspected)"
+        }
+      ]
+    }
+  }
+}

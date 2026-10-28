@@ -1,0 +1,8 @@
+path: D:/PTIT/IoT_UD/Lab2_FaceMask/dataset
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: with_mask
+  1: without_mask
+  2: mask_weared_incorrect

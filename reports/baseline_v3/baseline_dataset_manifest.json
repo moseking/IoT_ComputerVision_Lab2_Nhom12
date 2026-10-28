@@ -1,0 +1,97 @@
+{
+  "created": "2026-10-11T06:46:12.283821+00:00",
+  "seed": 42,
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "public_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\facemask_public_yolo",
+  "custom_review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+  "custom_policy": "all reviewed phone capture assigned to train as one conservative group",
+  "split_policy": "public train/val/test frozen; custom holdout matches excluded; no phone test independence claimed",
+  "identity_disjoint": "unverified for public; phone capture group has unknown identities, no separate reliable phone test",
+  "excluded_custom": [
+    {
+      "id": "f61b77fbfcb8b4b2",
+      "source_relative": "with_mask/IMG20261010142558.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "4de48de0499e3c62",
+      "source_relative": "with_mask/IMG20261010142558_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "48d330cc192a65bd",
+      "source_relative": "with_mask/IMG20261010142559.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "8b4ae3b0d0034315",
+      "source_relative": "with_mask/IMG20261010142559_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "45e66b75a934171b",
+      "source_relative": "with_mask/IMG20261010142559_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "e4bd367fca8df104",
+      "source_relative": "with_mask/IMG20261010142600.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "740d372ab2ed37be",
+      "source_relative": "with_mask/IMG20261010142600_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "68f43f30ee379076",
+      "source_relative": "with_mask/IMG20261010142601.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "d589efc742dc1749",
+      "source_relative": "with_mask/IMG20261010142604_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "3d82f197ab1827cd",
+      "source_relative": "with_mask/IMG20261010142604_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "b7085149be5264d5",
+      "source_relative": "with_mask/IMG20261010142612.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fdfc15f4163888ef",
+      "source_relative": "with_mask/IMG20261010142613_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5ed98f5f6178569c",
+      "source_relative": "with_mask/IMG20261010142614.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "947610a93470fafe",
+      "source_relative": "with_mask/IMG20261011113033.heic",
+      "reason": "label_not_verified"
+    }
+  ],
+  "prepared_statistics": {
+    "images": 1098,
+    "bounding_boxes": 3996,
+    "class_distribution": {
+      "with_mask": 3011,
+      "without_mask": 738,
+      "mask_weared_incorrect": 247
+    }
+  },
+  "custom_accepted": 266,
+  "custom_excluded": 14
+}

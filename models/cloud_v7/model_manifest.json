@@ -20,7 +20,8 @@
   },
   "trained_again": false,
   "parity_verified": true,
-  "cloud_uploaded": false,
-  "cloud_deployed": false,
-  "parity_images": 129
+  "cloud_uploaded": true,
+  "cloud_deployed": true,
+  "parity_images": 129,
+  "cloud_verification": "reports/cloud_v7/deployed_verification.json"
 }

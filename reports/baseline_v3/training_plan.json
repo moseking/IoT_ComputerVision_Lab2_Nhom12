@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-10-11T06:48:33.203475+00:00",
+  "reason": "Human phone review completed after v2 snapshot; final dataset now includes all 266 eligible reviewed images",
+  "initialization_selection": "highest public validation mAP50-95 at identical fixed evaluation settings; no test metrics read",
+  "validation_scores": {
+    "baseline_v1": 0.5480382965709786,
+    "baseline_v2": 0.5557507906982748
+  },
+  "selected_initialization": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\results\\training\\baseline_v2_finetune_2026-10-11T063746.391013_0000\\weights\\best.pt",
+  "dataset": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\facemask_baseline_v3\\data.yaml",
+  "epochs": 10,
+  "optimizer": "AdamW",
+  "lr0": 0.00015,
+  "lrf": 0.2,
+  "patience": 5
+}

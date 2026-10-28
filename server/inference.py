@@ -41,18 +41,7 @@ class MaskDetectionModel:
             import torch
             from ultralytics import YOLO
             self.device = ("0" if torch.cuda.is_available() else "cpu") if self.device == "auto" else self.device
-            if self.path.suffix.lower() == ".pkl":
-                import pickle
-                # Only load trusted local artifacts exported by our conversion script.
-                with self.path.open("rb") as stream:
-                    artifact = pickle.load(stream)
-                if not isinstance(artifact, dict) or artifact.get("format") != "facemask-yolo-pickle-v1":
-                    raise ValueError("Unsupported pickle model format; use scripts/export_pickle.py")
-                model = artifact.get("model")
-                if not isinstance(model, YOLO):
-                    raise ValueError("Pickle artifact does not contain a YOLO model")
-            else:
-                model = YOLO(str(self.path))
+            model = YOLO(str(self.path))
             actual = {int(k): v for k, v in model.names.items()}
             if actual != CLASSES:
                 raise ValueError(f"Checkpoint classes mismatch: {actual}; need {CLASSES}")

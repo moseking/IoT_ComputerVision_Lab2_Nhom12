@@ -1,0 +1,592 @@
+{
+  "created": "2026-10-11T06:32:49.851048+00:00",
+  "seed": 42,
+  "classes": {
+    "0": "with_mask",
+    "1": "without_mask",
+    "2": "mask_weared_incorrect"
+  },
+  "public_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\facemask_public_yolo",
+  "custom_review_source": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\single_person_review_v1",
+  "custom_policy": "all reviewed phone capture assigned to train as one conservative group",
+  "split_policy": "public train/val/test frozen; custom holdout matches excluded; no phone test independence claimed",
+  "identity_disjoint": "unverified for public; phone capture group has unknown identities, no separate reliable phone test",
+  "excluded_custom": [
+    {
+      "id": "f61b77fbfcb8b4b2",
+      "source_relative": "with_mask/IMG20261010142558.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "4de48de0499e3c62",
+      "source_relative": "with_mask/IMG20261010142558_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "48d330cc192a65bd",
+      "source_relative": "with_mask/IMG20261010142559.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "8b4ae3b0d0034315",
+      "source_relative": "with_mask/IMG20261010142559_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "45e66b75a934171b",
+      "source_relative": "with_mask/IMG20261010142559_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "e4bd367fca8df104",
+      "source_relative": "with_mask/IMG20261010142600.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "740d372ab2ed37be",
+      "source_relative": "with_mask/IMG20261010142600_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "68f43f30ee379076",
+      "source_relative": "with_mask/IMG20261010142601.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "d589efc742dc1749",
+      "source_relative": "with_mask/IMG20261010142604_01.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "3d82f197ab1827cd",
+      "source_relative": "with_mask/IMG20261010142604_02.heic",
+      "reason": "More face proposals than reviewed boxes; recheck all real faces before train"
+    },
+    {
+      "id": "b7085149be5264d5",
+      "source_relative": "with_mask/IMG20261010142612.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fdfc15f4163888ef",
+      "source_relative": "with_mask/IMG20261010142613_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5ed98f5f6178569c",
+      "source_relative": "with_mask/IMG20261010142614.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "947610a93470fafe",
+      "source_relative": "with_mask/IMG20261011113033.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b81bec374c713a13",
+      "source_relative": "wore_incorrect/IMG20261011113438.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5c33b54fc74253ec",
+      "source_relative": "wore_incorrect/IMG20261011113438_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "cd24adac1db71a3d",
+      "source_relative": "wore_incorrect/IMG20261011113439.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "50e0b8cafcf51727",
+      "source_relative": "wore_incorrect/IMG20261011113439_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "917cf48b1d2e768e",
+      "source_relative": "wore_incorrect/IMG20261011113440.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "ac4b31fc51521fb7",
+      "source_relative": "wore_incorrect/IMG20261011113441.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "43292467baa6b58c",
+      "source_relative": "wore_incorrect/IMG20261011113441_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b0e62ff5b33db001",
+      "source_relative": "wore_incorrect/IMG20261011113442.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "c07098c9325603d3",
+      "source_relative": "wore_incorrect/IMG20261011113442_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5c03e3f55f947111",
+      "source_relative": "wore_incorrect/IMG20261011113443.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "d0cd064e6889b7be",
+      "source_relative": "wore_incorrect/IMG20261011113443_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b6efe0b0356003ac",
+      "source_relative": "wore_incorrect/IMG20261011113444.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "9318cce41638ea37",
+      "source_relative": "wore_incorrect/IMG20261011113445.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "308fb982727a0369",
+      "source_relative": "wore_incorrect/IMG20261011113445_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "2d1df00f20f60893",
+      "source_relative": "wore_incorrect/IMG20261011113446.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "4bbe155b3d6483fb",
+      "source_relative": "wore_incorrect/IMG20261011113448.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "4fcb41bbca9051bf",
+      "source_relative": "wore_incorrect/IMG20261011113456.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "86943bf863e95bb2",
+      "source_relative": "wore_incorrect/IMG20261011113457.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "76df2754562bd7ad",
+      "source_relative": "wore_incorrect/IMG20261011113457_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "4f07920476f6966d",
+      "source_relative": "wore_incorrect/IMG20261011113458.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "0ab74e89dd6dd09e",
+      "source_relative": "wore_incorrect/IMG20261011113459.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b5876dad9dc14a73",
+      "source_relative": "wore_incorrect/IMG20261011113459_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "bd67e7847d83f3f8",
+      "source_relative": "wore_incorrect/IMG20261011113459_02.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b32cc17b741df15e",
+      "source_relative": "wore_incorrect/IMG20261011113500.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fd231d434f706191",
+      "source_relative": "wore_incorrect/IMG20261011113501.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "ace31fac531ca3f5",
+      "source_relative": "wore_incorrect/IMG20261011113501_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5bf70decb3d7303f",
+      "source_relative": "wore_incorrect/IMG20261011113502.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "57c18fb1850e5d1f",
+      "source_relative": "wore_incorrect/IMG20261011113503.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "a08ee5509e71113f",
+      "source_relative": "wore_incorrect/IMG20261011113503_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8cc8c6a7a236e70f",
+      "source_relative": "wore_incorrect/IMG20261011113504.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8ebc8f87f472e4a9",
+      "source_relative": "wore_incorrect/IMG20261011113506.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "9ab9ac160ab2b101",
+      "source_relative": "wore_incorrect/IMG20261011113507.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "46f68464f2cb1bb7",
+      "source_relative": "wore_incorrect/IMG20261011113507_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "206d15d0621ee801",
+      "source_relative": "wore_incorrect/IMG20261011113508.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "6d9e79227cee2b99",
+      "source_relative": "wore_incorrect/IMG20261011113509.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "782bbd6546ee7e94",
+      "source_relative": "wore_incorrect/IMG20261011113510.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "ff8a64d04dd45615",
+      "source_relative": "wore_incorrect/IMG20261011113522.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "d04960c5460f415a",
+      "source_relative": "wore_incorrect/IMG20261011113523.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "781f222416f1d3c0",
+      "source_relative": "wore_incorrect/IMG20261011113524.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "abac0a16363a7d81",
+      "source_relative": "wore_incorrect/IMG20261011113524_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "f3f64e6b26c27626",
+      "source_relative": "wore_incorrect/IMG20261011113525.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "1b570b6e6c9244d5",
+      "source_relative": "wore_incorrect/IMG20261011113525_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "c4760abfb2577524",
+      "source_relative": "wore_incorrect/IMG20261011113526.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "08ba80132f17e4d8",
+      "source_relative": "wore_incorrect/IMG20261011113526_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "eabf9ab91ec520a5",
+      "source_relative": "wore_incorrect/IMG20261011113527.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "52101d2b3176c63c",
+      "source_relative": "wore_incorrect/IMG20261011113528.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "7bf4e1f0a921bc26",
+      "source_relative": "wore_incorrect/IMG20261011113528_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5e73fad2240e2a44",
+      "source_relative": "wore_incorrect/IMG20261011113529.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b2be7e992a843964",
+      "source_relative": "wore_incorrect/IMG20261011113529_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "80add86482c23441",
+      "source_relative": "wore_incorrect/IMG20261011113531.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b0989e9566c5f352",
+      "source_relative": "wore_incorrect/IMG20261011113532.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8553aabcc2160b83",
+      "source_relative": "wore_incorrect/IMG20261011113534.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "13509e4247000079",
+      "source_relative": "wore_incorrect/IMG20261011113535.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "f12c7f20fe89c39b",
+      "source_relative": "wore_incorrect/IMG20261011113536.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "2a4dc1569d060b30",
+      "source_relative": "wore_incorrect/IMG20261011113541.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8a8b92499454c04c",
+      "source_relative": "wore_incorrect/IMG20261011113541_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "0c49aaa9788c558d",
+      "source_relative": "wore_incorrect/IMG20261011113543.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "2954da5cdbd8e07c",
+      "source_relative": "wore_incorrect/IMG20261011113543_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b8ba4024782ce5e7",
+      "source_relative": "wore_incorrect/IMG20261011113547.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "ee351497c0d9dad0",
+      "source_relative": "wore_incorrect/IMG20261011113548.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "d2374ad2a8ac3af5",
+      "source_relative": "wore_incorrect/IMG20261011113548_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "eca38b1a5f03f4a5",
+      "source_relative": "wore_incorrect/IMG20261011113549.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "d9faeeff9f02dd84",
+      "source_relative": "wore_incorrect/IMG20261011113550.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "dfc12f1880e4101f",
+      "source_relative": "wore_incorrect/IMG20261011113556.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5ed9174868fe7027",
+      "source_relative": "wore_incorrect/IMG20261011113557.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "9e1c928da0a599d0",
+      "source_relative": "wore_incorrect/IMG20261011113557_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "36ad40f79abf7730",
+      "source_relative": "wore_incorrect/IMG20261011113558.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "b5e24736d1fec314",
+      "source_relative": "wore_incorrect/IMG20261011113559.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "20baf2def1645622",
+      "source_relative": "wore_incorrect/IMG20261011113559_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "a7af4c016115b956",
+      "source_relative": "wore_incorrect/IMG20261011113600.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fb0adc8b6377c725",
+      "source_relative": "wore_incorrect/IMG20261011113601.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "ab597b734d93cc3b",
+      "source_relative": "wore_incorrect/IMG20261011113602.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8c8c5a5c3d0afed6",
+      "source_relative": "wore_incorrect/IMG20261011113602_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "bdcb78b51048a85f",
+      "source_relative": "wore_incorrect/IMG20261011113603.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "0d1c5fe143871985",
+      "source_relative": "wore_incorrect/IMG20261011113603_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "3610c48e1aaa96c0",
+      "source_relative": "wore_incorrect/IMG20261011113604.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "16da5454345fafa0",
+      "source_relative": "wore_incorrect/IMG20261011113605.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "e6e0c24254d3e64c",
+      "source_relative": "wore_incorrect/IMG20261011113606.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8a534d6714538041",
+      "source_relative": "wore_incorrect/IMG20261011113606_01.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5779a255bd80990f",
+      "source_relative": "wore_incorrect/IMG20261011113607.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "f6cf07c7d8e6689f",
+      "source_relative": "wore_incorrect/IMG20261011113608.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "75ca6362f145c6af",
+      "source_relative": "wore_incorrect/IMG20261011113609.heic",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "c9d4c8f8f77623bb",
+      "source_relative": "wore_incorrect/IMG_1791623776755_1791623960642.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fedc18b267b6d04b",
+      "source_relative": "wore_incorrect/IMG_1791623776771_1791623964610.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "e304ef459f5bec8a",
+      "source_relative": "wore_incorrect/IMG_1791623776776_1791623965956.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "31987206718d02fd",
+      "source_relative": "wore_incorrect/IMG_1791623776781_1791623967193.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "fb85efca9713e60f",
+      "source_relative": "wore_incorrect/IMG_1791623776787_1791623968399.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "afba1d55a03fc739",
+      "source_relative": "wore_incorrect/IMG_1791623776792_1791623969692.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "04c321bbb5ebfad2",
+      "source_relative": "wore_incorrect/IMG_1791623776797_1791623970945.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "f6606c040af0d894",
+      "source_relative": "wore_incorrect/IMG_1791623776802_1791623972427.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "75cf8ef8c615195d",
+      "source_relative": "wore_incorrect/IMG_1791623776808_1791623973634.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "9d67ba9d65c5620c",
+      "source_relative": "wore_incorrect/IMG_1791623776813_1791623976393.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "1603ea137a8e048f",
+      "source_relative": "wore_incorrect/IMG_1791623776818_1791623977480.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "5975f47d3a585c25",
+      "source_relative": "wore_incorrect/IMG_1791623776824_1791623978694.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "e7afcd4186b554fd",
+      "source_relative": "wore_incorrect/IMG_1791623776829_1791623980012.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "759c6ed655628791",
+      "source_relative": "wore_incorrect/IMG_1791623776835_1791623985061.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "8918f5145786fac7",
+      "source_relative": "wore_incorrect/IMG_1791623776840_1791623986717.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "6d0494e9bd972806",
+      "source_relative": "wore_incorrect/IMG_1791623776846_1791623987855.jpg",
+      "reason": "label_not_verified"
+    },
+    {
+      "id": "c64599e9b36e6f2c",
+      "source_relative": "wore_incorrect/IMG_1791623776852_1791623989015.jpg",
+      "reason": "label_not_verified"
+    }
+  ],
+  "prepared_statistics": {
+    "images": 999,
+    "bounding_boxes": 3897,
+    "class_distribution": {
+      "with_mask": 3011,
+      "without_mask": 738,
+      "mask_weared_incorrect": 148
+    }
+  },
+  "custom_accepted": 167,
+  "custom_excluded": 113
+}

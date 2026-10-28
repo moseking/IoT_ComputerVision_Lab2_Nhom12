@@ -13,11 +13,3 @@
 !models/
 !models/cloud_v7/
 !models/cloud_v7/face_mask_v7.onnx
-
-!server/latency_store.py
-!server/telegram_service.py
-!server/camera_client.py
-!web/
-!web/index.html
-!web/style.css
-!web/app.js

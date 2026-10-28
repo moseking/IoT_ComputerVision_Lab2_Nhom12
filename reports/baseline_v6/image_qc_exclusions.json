@@ -1,0 +1,92 @@
+{
+  "mask_rule": "correct covers both nose and mouth; incorrect exposes nose/mouth or below chin",
+  "audit_actor": "assistant visual QC; no human relabeling",
+  "review_sources": {
+    "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\data\\processed\\multi_person_review_v1": {
+      "manifest_sha256": "ccb23469eedd7623f5d9b71ee303c80061beda0628c0963eae5533768268dfcb",
+      "rows": [
+        {
+          "id": "71ce550a8ab26df2",
+          "index": 468,
+          "processed_sha256": "9b5449bd12099bba5ebd3804401befe7379d78d352fef1465bc00ff038039d4b",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                714.0680016013314,
+                680.3393737163655,
+                1114.7395065218188,
+                1124.6426536259087
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                113.0607631369424,
+                616.8674846933299,
+                418.523310892036,
+                1086.9561870064376
+              ]
+            }
+          ],
+          "reason": "ambiguous_mask_transition",
+          "visual_evidence": "class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+        },
+        {
+          "id": "e474808afacc1d4d",
+          "index": 469,
+          "processed_sha256": "c4e91bf53c73010ee2717f0ea6e00fd0c04eeec91818c41febe7b6b917e6a7a4",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                113.0607631369424,
+                658.5209219138741,
+                426.45727873412847,
+                1057.2037372535056
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                716.0515692272227,
+                672.4053946820228,
+                1138.5417883749367,
+                1130.5931284436165
+              ]
+            }
+          ],
+          "reason": "ambiguous_mask_transition",
+          "visual_evidence": "class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+        },
+        {
+          "id": "5a48e0db93c3e872",
+          "index": 470,
+          "processed_sha256": "3eb1abe37467202641c13bee3e7be5cdd40afe33f208684fab91a07ebacb2d4f",
+          "original_boxes": [
+            {
+              "class_id": 2,
+              "bbox": [
+                122.97837427029422,
+                662.4879114310454,
+                402.65503471369453,
+                1069.1047625533138
+              ]
+            },
+            {
+              "class_id": 2,
+              "bbox": [
+                714.0680016013314,
+                664.471396731582,
+                1128.624177241585,
+                1196.0485027671887
+              ]
+            }
+          ],
+          "reason": "ambiguous_mask_transition",
+          "visual_evidence": "class2_02/03 contact sheets: black-shirt subject holds mask while lifting/removing it; coverage/position is ambiguous relative to nose-and-mouth coverage rule; exclude whole image, do not relabel"
+        }
+      ]
+    }
+  }
+}

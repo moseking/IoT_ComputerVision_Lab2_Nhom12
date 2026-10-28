@@ -1,0 +1,18 @@
+{
+  "manifest_sha256": "dfc68be4bd0ef91d2c7a0cbfb8ee56bef5a98610994f9aa1f70ac05bc8438831",
+  "authorization": "User requested on 2026-10-11 that incorrect-mask boxes include the hanging mask beside the ear/face.",
+  "actor": "assistant_visual_geometry_audit",
+  "classes_changed": false,
+  "human_verified_geometry": false,
+  "policy": "Enclose the original reviewed face box and the visible mask body, including a clearly visible dangling loop, with minimal margin. Preserve the human class and original box. Apply only to the derived context view; never overwrite human review or raw images.",
+  "changes": [
+    {"index": 8, "box_index": 1, "bbox": [48, 43.227007539788076, 261.76361973980613, 297], "reason": "One-ear mask body and dangling loop extend left and below the face."},
+    {"index": 9, "box_index": 1, "bbox": [98.46153758067315, 52.833021620815394, 238.94934217942318, 274], "reason": "Mask beneath the chin extends below the reviewed face."},
+    {"index": 13, "box_index": 0, "bbox": [238.22152709960938, 67.58229064941406, 444.5071563720703, 372], "reason": "Lower tip of the mask extends below the reviewed face."},
+    {"index": 14, "box_index": 0, "bbox": [256.96059947288467, 75.64727894009538, 455.08445260345934, 398], "reason": "Mask beneath the chin extends below the reviewed face."},
+    {"index": 15, "box_index": 0, "bbox": [205, 74.44652252789739, 445.4784578746124, 412], "reason": "One-ear mask body extends left; its free loop extends below the chin."},
+    {"index": 18, "box_index": 0, "bbox": [226, 59.352867126464844, 426, 344], "reason": "Visible mask body extends to the side and below the reviewed face."},
+    {"index": 19, "box_index": 0, "bbox": [187.31708043249935, 57.6360186414869, 530, 423], "reason": "One-ear mask body extends right; its free loop extends below the chin."},
+    {"index": 20, "box_index": 0, "bbox": [275, 77.14183044433594, 456, 366], "reason": "Mask beneath the chin extends below and to the side of the face."}
+  ]
+}

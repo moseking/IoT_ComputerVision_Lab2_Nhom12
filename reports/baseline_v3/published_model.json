@@ -1,0 +1,16 @@
+{
+  "selection": {
+    "timestamp": "2026-10-11T06:58:59.814951+00:00",
+    "selection_criterion": "highest standardized validation mAP50-95 among completed candidate runs",
+    "test_used_for_selection": false,
+    "validation_scores": {
+      "baseline_v1": 0.5480382965709786,
+      "baseline_v2": 0.5557507906982748,
+      "baseline_v3": 0.5671970480844355
+    },
+    "selected": "baseline_v3"
+  },
+  "run": "D:\\PTIT\\IoT_UD\\Lab2_FaceMask\\results\\training\\baseline_v3_2026-10-11T064852.371357_0000",
+  "best_sha256": "d66dec3404992fe0c227b099ea47069c117e41739ac7e296219a857eeaf95764",
+  "old_published_files_archived": true
+}

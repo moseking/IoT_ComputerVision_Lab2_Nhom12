@@ -1,54 +1,87 @@
 "use strict";
-let laptopStream = null, laptopBusy = false;
-function showTelegramDelivery(result) {
-  const delivery = result.telegram_delivery;
-  $("telegramDelivery").textContent = delivery ? (delivery.state === "queued" ? "Đã đưa ảnh vào hàng đợi Telegram. Kiểm tra tin nhắn trong chat của bot." : "Chưa gửi Telegram. Kiểm tra cấu hình bot, chat ID hoặc hàng đợi đang bận.") : "";
-}
-function stopLaptopCamera() {
-  if (laptopStream) laptopStream.getTracks().forEach(track => track.stop());
-  laptopStream = null; $("webcamVideo").srcObject = null; $("webcamVideo").hidden = true;
-  $("webcamStart").disabled = false; $("webcamCapture").disabled = true; $("webcamStop").disabled = true;
-}
-$("webcamStart").onclick = async () => {
-  $("webcamStart").disabled = true;
-  try {
-    if (!navigator.mediaDevices?.getUserMedia) throw new Error("Mở dashboard bằng http://localhost:8000 hoặc http://127.0.0.1:8000 để dùng camera laptop.");
-    stopLiveDetection();
-    laptopStream = await navigator.mediaDevices.getUserMedia({video: {width: {ideal:1280}, height:{ideal:720}}, audio:false});
-    $("webcamVideo").srcObject = laptopStream; $("webcamVideo").hidden = false;
-    await $("webcamVideo").play();
-    $("webcamStart").disabled = true; $("webcamCapture").disabled = false; $("webcamStop").disabled = false;
-    notice("Camera laptop đã mở. Bấm Chụp & nhận diện để xử lý một ảnh.");
-  } catch (error) {
-    stopLaptopCamera();
-    notice(error.name === "NotAllowedError" ? "Chưa được cấp quyền camera. Cho phép camera trong trình duyệt rồi thử lại." : error.name === "NotFoundError" ? "Không tìm thấy camera laptop." : error.message, true);
+// Capture the browser's webcam only after an explicit user action.
+class WebcamCapture {
+  constructor(video, options = {}) {
+    this.video = video;
+    this.mediaDevices = options.mediaDevices ?? globalThis.navigator?.mediaDevices;
+    this.secure = options.secureContext ?? globalThis.isSecureContext;
+    this.makeCanvas = options.makeCanvas ?? (() => document.createElement("canvas"));
+    this.now = options.now ?? (() => performance.now());
+    this.stream = null; this.pending = null; this.generation = 0;
   }
-};
-$("webcamStop").onclick = stopLaptopCamera;
-$("webcamCapture").onclick = async () => {
-  if (laptopBusy || !laptopStream) return;
-  const video = $("webcamVideo");
-  if (!video.videoWidth) return notice("Camera chưa có hình, thử lại sau.", true);
-  laptopBusy = true; $("webcamCapture").disabled = true;
-  const totalStart = performance.now();
-  try {
-    stopLiveDetection(); preview = false;
-    const canvas = document.createElement("canvas"); canvas.width = video.videoWidth; canvas.height = video.videoHeight;
-    canvas.getContext("2d").drawImage(video,0,0);
-    const blob = await new Promise(resolve => canvas.toBlob(resolve,"image/jpeg",.9));
-    if (!blob) throw new Error("Không tạo được ảnh từ camera.");
-    const data = new FormData(); data.append("file",blob,"laptop.jpg"); data.append("source","dashboard");
-    data.append("include_image","true"); data.append("inference_target",inferenceTarget);
-    data.append("send_telegram",$("sendTelegram").checked ? "true" : "false");
-    const started = performance.now();
-    const response = await request("/predict",{method:"POST",body:data,timeout:inferenceTarget === "cloud" ? cloudTimeoutMs : 60000});
-    const text = await response.text(); const received = performance.now(); const result = JSON.parse(text);
-    attachClientTimings(result,received-started,received-totalStart);
-    selectView("resultButton"); lastRequest = null; frozenResult = result;
-    await renderResult(result); $("frameSource").textContent = "CAMERA LAPTOP"; showTelegramDelivery(result);
-    try { await json("/metrics/report",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({request_id:result.request_id,report_token:result.report_token,capture_ms:null,roundtrip_ms:result.roundtrip_ms,total_ms:result.total_ms,upload_ms:null,download_ms:null})}); }
-    catch (_) { notice("Đã nhận diện; chưa lưu được số đo thời gian phía trình duyệt.",true); }
-  } catch (error) { notice(error.message,true); }
-  finally { laptopBusy = false; $("webcamCapture").disabled = !laptopStream; }
-};
-window.addEventListener("pagehide",stopLaptopCamera);
+  get starting() { return this.pending !== null; }
+  get ready() { return !!this.stream && this.stream.getVideoTracks().some(t => t.readyState === "live"); }
+  error(message) { const error = new Error(message); error.name = "WebcamError"; return error; }
+  cancelled() { const error = new Error("Đã dừng yêu cầu webcam."); error.name = "AbortError"; return error; }
+  stop() {
+    this.generation++;
+    if (this.stream) this.stream.getTracks().forEach(track => track.stop());
+    this.stream = null; this.pending = null;
+    this.video.pause(); this.video.srcObject = null;
+  }
+  start() {
+    if (this.ready) return Promise.resolve(this.stream);
+    if (this.pending) return this.pending;
+    if (!this.secure || !this.mediaDevices?.getUserMedia) {
+      return Promise.reject(this.error("Mở dashboard bằng http://127.0.0.1:8000 hoặc localhost để dùng webcam; địa chỉ IP qua HTTP không hỗ trợ quyền camera."));
+    }
+    const generation = ++this.generation;
+    const task = this.open(generation);
+    this.pending = task;
+    task.then(() => { if (this.pending === task) this.pending = null; }, () => { if (this.pending === task) this.pending = null; });
+    return task;
+  }
+  async open(generation) {
+    let stream;
+    try {
+      stream = await this.mediaDevices.getUserMedia({audio: false, video: {width: {ideal: 640}, height: {ideal: 480}, facingMode: "user"}});
+      if (generation !== this.generation) throw this.cancelled();
+      this.stream = stream; this.video.srcObject = stream;
+      await this.video.play();
+      if (!this.video.videoWidth || !this.video.videoHeight) {
+        await new Promise((resolve, reject) => {
+          const finish = error => {
+            clearTimeout(timer); this.video.removeEventListener("loadeddata", loaded);
+            this.video.removeEventListener("error", failed);
+            error ? reject(error) : resolve();
+          };
+          const loaded = () => finish();
+          const failed = () => finish(this.error("Không đọc được frame webcam."));
+          const timer = setTimeout(() => finish(this.error("Webcam chưa có frame. Đóng app khác đang dùng camera rồi thử lại.")), 8000);
+          this.video.addEventListener("loadeddata", loaded, {once: true});
+          this.video.addEventListener("error", failed, {once: true});
+        });
+      }
+      if (generation !== this.generation) throw this.cancelled();
+      if (!this.ready || !this.video.videoWidth || !this.video.videoHeight) throw this.error("Webcam đã dừng hoặc chưa có ảnh.");
+      return stream;
+    } catch (error) {
+      if (generation !== this.generation) { if (stream) stream.getTracks().forEach(t => t.stop()); throw this.cancelled(); }
+      this.stop();
+      if (error.name === "WebcamError") throw error;
+      const messages = {
+        NotAllowedError: "Chưa được cấp quyền camera. Chọn Cho phép camera trong trình duyệt rồi bật webcam lại.",
+        NotFoundError: "Không tìm thấy webcam. Kiểm tra camera laptop/USB và công tắc che camera.",
+        NotReadableError: "Webcam đang bận hoặc bị Windows chặn. Đóng Camera/Teams và kiểm tra quyền camera của trình duyệt.",
+      };
+      throw this.error(messages[error.name] || "Không mở được webcam: " + error.message);
+    }
+  }
+  async capture() {
+    await this.start();
+    const generation = this.generation, started = this.now();
+    const canvas = this.makeCanvas();
+    const scale = Math.min(1, 1280 / Math.max(this.video.videoWidth, this.video.videoHeight));
+    canvas.width = Math.max(1, Math.round(this.video.videoWidth * scale));
+    canvas.height = Math.max(1, Math.round(this.video.videoHeight * scale));
+    const context = canvas.getContext("2d");
+    if (!context) throw this.error("Trình duyệt không tạo được ảnh webcam.");
+    context.drawImage(this.video, 0, 0, canvas.width, canvas.height);
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", 0.85));
+    if (generation !== this.generation || !this.ready) throw this.cancelled();
+    if (!blob || blob.type !== "image/jpeg" || !blob.size) throw this.error("Không mã hóa được ảnh webcam thành JPEG.");
+    return {blob, capture_ms: Math.max(0, this.now() - started), width: canvas.width, height: canvas.height};
+  }
+}
+if (typeof module !== "undefined") module.exports = {WebcamCapture};
+else globalThis.WebcamCapture = WebcamCapture;

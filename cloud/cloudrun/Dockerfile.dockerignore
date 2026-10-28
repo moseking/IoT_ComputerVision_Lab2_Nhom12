@@ -1,0 +1,15 @@
+**
+!cloud/
+!cloud/cloudrun/
+!cloud/cloudrun/Dockerfile
+!cloud/cloudrun/Dockerfile.dockerignore
+!cloud/cloudrun/requirements.txt
+!server/
+!server/__init__.py
+!server/inference.py
+!server/inference_onnx.py
+!server/cloud_bootstrap.py
+!server/cloud_app.py
+!server/cloud_entry.py
+!scripts/
+!scripts/verify_cloudrun.py

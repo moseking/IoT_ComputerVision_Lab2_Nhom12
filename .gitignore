@@ -117,3 +117,55 @@ reports/**/*.zip
 # Selected Lab 2 model artifacts for reproducible local/cloud demos
 !models/camera_v7/face_mask_best.pt
 !models/cloud_v7/face_mask_v7.onnx
+
+# Generated reports are local; retain required reproduction ledgers as source data.
+reports/**
+!reports/**/
+# Retained reproduction ledgers
+!reports/baseline_v1/baseline_dataset_manifest.json
+!reports/baseline_v1/baseline_dataset_validation.json
+!reports/baseline_v2/baseline_dataset_manifest.json
+!reports/baseline_v2/baseline_dataset_validation.json
+!reports/baseline_v3/baseline_dataset_manifest.json
+!reports/baseline_v3/baseline_dataset_validation.json
+!reports/baseline_v3/model_selection.json
+!reports/baseline_v3/published_model.json
+!reports/baseline_v3/training_plan.json
+!reports/baseline_v4/baseline_dataset_manifest.json
+!reports/baseline_v4/baseline_dataset_validation.json
+!reports/baseline_v5/baseline_dataset_manifest.json
+!reports/baseline_v5/baseline_dataset_validation.json
+!reports/baseline_v5/non_person_box_exclusions.json
+!reports/baseline_v6/baseline_dataset_manifest.json
+!reports/baseline_v6/baseline_dataset_validation.json
+!reports/baseline_v6/image_qc_exclusions.json
+!reports/baseline_v6/model_selection.json
+!reports/baseline_v6/published_model.json
+!reports/camera_v7/baseline_dataset_manifest.json
+!reports/camera_v7/baseline_dataset_validation.json
+!reports/camera_v7/model_selection.json
+!reports/camera_v7/training_plan.json
+!reports/camera_v8/additional_review_snapshot.json
+!reports/camera_v8/baseline_dataset_manifest.json
+!reports/camera_v8/baseline_dataset_validation.json
+!reports/camera_v8/bbox_context.json
+!reports/camera_v8/image_qc_exclusions.json
+!reports/camera_v8/model_selection.json
+!reports/camera_v8/training_plan.json
+!reports/cloud_v7/deployed_verification.json
+!reports/esp32_v1/camera_bbox_context.json
+!reports/training_data/2026-10-11T062552.790534_0000.json
+!reports/training_data/2026-10-11T063407.816034_0000.json
+!reports/training_data/2026-10-11T063743.436231_0000.json
+!reports/training_data/2026-10-11T064850.171205_0000.json
+!reports/training_data/2026-10-11T110701.228589_0000.json
+!reports/training_data/2026-10-11T114215.589479_0000.json
+!reports/training_data/2026-10-11T141209.710890_0000.json
+!reports/training_data/2026-10-11T150435.507191_0000.json
+
+# Editor/build caches and transient database journals
+.nox/
+.tox/
+.pyright/
+*.db-journal
+*.sqlite-journal

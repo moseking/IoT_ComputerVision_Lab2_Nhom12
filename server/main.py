@@ -13,6 +13,7 @@ import httpx
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from typing import Annotated, Literal
+from urllib.parse import urlsplit
 
 from fastapi import Depends, FastAPI, File, Form, Header, HTTPException, Query, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
@@ -139,10 +140,14 @@ def health():
 
 @app.get("/config")
 def public_config():
-    # No secrets are exposed to the browser.
+    # Only provider name and preferences are public; no URL credentials or key.
+    host = urlsplit(cloud.config.url).hostname or ""
+    provider = "Google Cloud Run" if host.endswith(".run.app") else "Render" if host.endswith(".onrender.com") else "Cloud API"
     return {"api_base_url": settings.api_base_url, "camera_url": settings.camera_url,
             "send_interval_ms": settings.send_interval_ms, "api_key_required": bool(settings.api_key),
-            "cloud_configured": cloud.configured, "cloud_timeout_seconds": settings.cloud_timeout}
+            "cloud_configured": cloud.configured, "cloud_timeout_seconds": settings.cloud_timeout,
+            "cloud_provider": provider, "default_inference_target": settings.default_inference_target,
+            "default_camera_source": settings.default_camera_source}
 
 
 @app.get("/model/info", dependencies=[Depends(authorize)])
@@ -258,7 +263,7 @@ def run_prediction(file, source, capture_ms, include_image, response_kind, *, ma
         file.file.close()
 
 
-Source = Literal["esp32", "test_client", "dashboard"]
+Source = Literal["esp32", "test_client", "dashboard", "webcam"]
 
 
 class CameraRequest(BaseModel):
@@ -327,9 +332,10 @@ def predict_camera(command: CameraPredictRequest):
 def predict(file: Annotated[UploadFile, File()], source: Annotated[Source, Form()] = "test_client",
             capture_ms: Annotated[float | None, Form(ge=0, le=300000)] = None,
             include_image: Annotated[bool, Form()] = False,
-            send_telegram: Annotated[bool, Form()] = False,
-            inference_target: Annotated[Literal["local", "cloud"], Form()] = "local"):
-    return run_prediction(file, source, capture_ms, include_image, "json", manual_telegram=send_telegram, inference_target=inference_target)
+            inference_target: Annotated[Literal["local", "cloud"], Form()] = "local",
+            send_telegram: Annotated[bool, Form()] = False):
+    return run_prediction(file, source, capture_ms, include_image, "json", inference_target=inference_target,
+                          manual_telegram=source == "webcam" and send_telegram)
 
 
 @app.post("/predict/image", dependencies=[Depends(authorize)])
